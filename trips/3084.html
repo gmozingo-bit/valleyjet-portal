@@ -8,10 +8,10 @@
 body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;color:#1a1a1a;}
 
 /* Header */
-.header{background:linear-gradient(135deg,#0F1C2E 0%,#1a2d47 100%);padding:40px 20px 35px;text-align:center;position:relative;}
+.header{background:#ffffff;padding:40px 20px 35px;text-align:center;position:relative;}
 .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#FF5500,transparent);}
 .header img{display:block;margin:0 auto;height:50px;}
-.header p{color:#6b7d93;font-size:12px;margin-top:10px;letter-spacing:2px;text-transform:uppercase;font-weight:300;}
+.header p{color:#8896a7;font-size:12px;margin-top:10px;letter-spacing:2px;text-transform:uppercase;font-weight:300;}
 
 /* Hero Aircraft */
 .hero-aircraft{max-width:800px;margin:0 auto;overflow:hidden;position:relative;}
@@ -54,13 +54,14 @@ body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;co
 .time-label{font-size:9px;color:#FF5500;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;}
 .time{font-size:12px;color:#2d3a4a;font-weight:500;}
 
-/* FBO */
-.fbo-pill{background:#f0f3f7;padding:6px 10px;border-radius:6px;font-size:11px;color:#2d3a4a;margin-top:6px;display:inline-block;}
-.fbo-label{background:#0F1C2E;color:white;padding:1px 5px;border-radius:3px;font-size:8px;font-weight:700;letter-spacing:0.5px;margin-right:5px;vertical-align:middle;}
-.fbo-phone{color:#8896a7;margin-left:4px;}
-.fbo-addr{font-size:10px;color:#8896a7;margin-top:3px;padding-left:2px;}
-.airport.right .fbo-pill{float:right;clear:both;}
-.airport.right .fbo-addr{text-align:right;clear:both;}
+/* FBO Card */
+.fbo-card{background:#f8f9fb;border:1px solid #eef1f5;border-radius:8px;padding:10px 12px;margin-top:10px;}
+.fbo-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.fbo-label{background:#0F1C2E;color:white;padding:2px 6px;border-radius:3px;font-size:8px;font-weight:700;letter-spacing:0.5px;flex-shrink:0;}
+.fbo-name{font-size:12px;font-weight:600;color:#0F1C2E;}
+.fbo-detail{font-size:11px;color:#5a6878;margin-top:4px;display:flex;align-items:flex-start;gap:5px;line-height:1.4;}
+.fbo-detail-icon{font-size:11px;flex-shrink:0;margin-top:1px;}
+.airport.right .fbo-card{text-align:left;}
 
 /* Tags */
 .tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:14px;border-top:1px solid #eef1f5;}
@@ -112,14 +113,22 @@ body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;co
             <div class="code">KAPC</div>
             <div class="city">Napa, CA</div>
             <div class="time-block"><div class="time-label">DEPART</div><div class="time">Tue, Apr 14, 2026, 9:00 AM</div></div>
-            <div class="fbo-pill"><span class="fbo-label">FBO</span> Atlantic Aviation Services <span class="fbo-phone">7072240887</span></div><div class="fbo-addr">2100 Airport Road Napa, CA 94558</div>
+            <div class="fbo-card">
+                                <div class="fbo-header"><span class="fbo-label">FBO</span><span class="fbo-name">Atlantic Aviation Services</span></div>
+                                <div class="fbo-detail"><span class="fbo-detail-icon">&#128222;</span>7072240887</div>
+                                <div class="fbo-detail"><span class="fbo-detail-icon">&#128205;</span>2100 Airport Road Napa, CA 94558</div>
+                            </div>
         </div>
         <div class="route-line"><div class="line"></div><div class="plane-icon">&#9992;</div><div class="line"></div></div>
         <div class="airport right">
             <div class="code">KSDL</div>
             <div class="city">Scottsdale</div>
             <div class="time-block"><div class="time-label">ARRIVE</div><div class="time">Tue, Apr 14, 2026, 10:39 AM</div></div>
-            <div class="fbo-pill"><span class="fbo-label">FBO</span> Signature <span class="fbo-phone">(480) 991-2555</span></div><div class="fbo-addr">15290 N 78th Way</div>
+            <div class="fbo-card">
+                                <div class="fbo-header"><span class="fbo-label">FBO</span><span class="fbo-name">Signature</span></div>
+                                <div class="fbo-detail"><span class="fbo-detail-icon">&#128222;</span>(480) 991-2555</div>
+                                <div class="fbo-detail"><span class="fbo-detail-icon">&#128205;</span>15290 N 78th Way</div>
+                            </div>
         </div>
     </div>
     <div class="tags"><span class="tag">Passengers: Maria Rascon , Brendan Mullins , Leeanna Peterson, Sacheh Gounden, , </span></div>
