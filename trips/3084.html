@@ -63,9 +63,18 @@ body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;co
 .fbo-detail-icon{font-size:11px;flex-shrink:0;margin-top:1px;}
 .airport.right .fbo-card{text-align:left;}
 
-/* Tags */
-.tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:14px;border-top:1px solid #eef1f5;}
-.tag{background:#f8f9fb;border:1px solid #e8ecf1;padding:4px 10px;border-radius:5px;font-size:10px;color:#5a6878;font-weight:500;}
+/* Leg Details */
+.leg-details{padding-top:16px;border-top:1px solid #eef1f5;}
+.detail-section{margin-bottom:14px;}
+.detail-section:last-child{margin-bottom:0;}
+.detail-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#FF5500;margin-bottom:6px;}
+.detail-list{display:flex;flex-direction:column;gap:3px;}
+.detail-list-item{font-size:12px;color:#2d3a4a;font-weight:500;display:flex;align-items:baseline;gap:6px;}
+.detail-num{font-size:10px;color:#8896a7;font-weight:600;min-width:16px;}
+.detail-text{font-size:12px;color:#2d3a4a;line-height:1.6;padding-left:2px;}
+.detail-sub{margin-top:6px;}
+.detail-sub+.detail-sub{margin-top:8px;padding-top:6px;border-top:1px dashed #eef1f5;}
+.detail-sub-label{font-size:10px;font-weight:700;color:#0F1C2E;letter-spacing:0.5px;}
 
 /* Footer */
 .footer{text-align:center;padding:30px 20px 40px;border-top:1px solid #e0e0e0;}
@@ -100,7 +109,7 @@ body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;co
 <div class="info-grid">
 <div class="info-item"><div class="label">Client</div><div class="value">Maria Mullins</div></div>
 <div class="info-item"><div class="label">Aircraft</div><div class="value">Cessna Citation CJ3 (N525B) </div></div>
-<div class="info-item"><div class="label">Passengers</div><div class="value">2</div></div>
+<div class="info-item"><div class="label">Passengers</div><div class="value">3</div></div>
 <div class="info-item"><div class="label">Date</div><div class="value"></div></div>
 </div>
 </div>
@@ -131,7 +140,7 @@ body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;co
                             </div>
         </div>
     </div>
-    <div class="tags"><span class="tag">Passengers: Maria Rascon , Brendan Mullins , Leeanna Peterson, Sacheh Gounden, , </span><span class="tag">Ground: Confirmed: 3PM Pick Up from Milliken Creek Inn to KAPC. Confirmed: KSDL to 29517 N 141st St. Scottsdale, AZ8 85262</span></div>
+    <div class="leg-details"><div class="detail-section"><div class="detail-label">Passengers</div><div class="detail-list"><div class="detail-list-item"><span class="detail-num">1.</span>Maria Rascon</div><div class="detail-list-item"><span class="detail-num">2.</span>Brendan Mullins</div><div class="detail-list-item"><span class="detail-num">3.</span>Leeanna Peterson</div></div></div><div class="detail-section"><div class="detail-label">Ground Transportation</div><div class="detail-sub"><span class="detail-sub-label">KAPC</span><div class="detail-text">Canceled: 3PM Pick Up from Milliken Creek Inn to KAPC</div></div><div class="detail-sub"><span class="detail-sub-label">KSDL</span><div class="detail-text">Confirmed: KSDL to 29517 N 141st St. Scottsdale, AZ8 85262</div></div></div></div>
 </div>
 </div>
 <div class="footer">
