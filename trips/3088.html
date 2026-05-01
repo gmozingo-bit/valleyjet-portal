@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ValleyJet - Trip #3088</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#ffffff;color:#1a1a1a;}
+
+/* Header */
+.header{background:#ffffff;padding:40px 20px 35px;text-align:center;position:relative;}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#FF5500,transparent);}
+.header img{display:block;margin:0 auto;height:50px;}
+.header p{color:#8896a7;font-size:12px;margin-top:10px;letter-spacing:2px;text-transform:uppercase;font-weight:300;}
+
+/* Hero Aircraft */
+.hero-aircraft{max-width:800px;margin:0 auto;overflow:hidden;position:relative;}
+.hero-aircraft::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,#ffffff);}
+.hero-aircraft img{width:100%;height:auto;display:block;}
+
+/* Container */
+.container{max-width:680px;margin:-30px auto 0;padding:0 20px 40px;position:relative;z-index:2;}
+
+/* Trip Info Card */
+.trip-card{background:white;border-radius:12px;padding:28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,0.15);border-left:4px solid #FF5500;position:relative;overflow:hidden;}
+.trip-card::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:linear-gradient(135deg,transparent 50%,rgba(255,85,0,0.03) 50%);pointer-events:none;}
+.trip-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.trip-num{font-size:22px;font-weight:700;color:#0F1C2E;letter-spacing:-0.5px;}
+.ac-badge{background:#0F1C2E;color:white;padding:5px 14px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.info-item .label{color:#8896a7;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:3px;}
+.info-item .value{font-weight:600;font-size:16px;color:#0F1C2E;}
+
+/* Flight Legs */
+.legs-title{color:#6b7d93;font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:16px;padding-left:4px;}
+.leg{background:white;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);animation:fadeUp 0.5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.leg-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #eef1f5;}
+.leg-num{background:#FF5500;color:white;padding:4px 12px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px;}
+.leg-meta{color:#8896a7;font-size:12px;font-weight:500;}
+
+/* Route */
+.route{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+.airport{flex:1;}
+.airport.right{text-align:right;}
+.code{font-size:32px;font-weight:700;color:#0F1C2E;letter-spacing:-1px;line-height:1;}
+.city{font-size:12px;color:#8896a7;margin-top:4px;margin-bottom:12px;font-weight:500;}
+.route-line{display:flex;flex-direction:row;align-items:center;padding-top:16px;min-width:60px;}
+.line{flex:1;height:1px;border-top:2px dashed #d0d7e0;}
+.plane-icon{margin:0 4px;display:flex;align-items:center;transform:rotate(90deg);}
+
+/* Time */
+.time-block{margin-bottom:10px;}
+.time-label{font-size:9px;color:#FF5500;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;}
+.time{font-size:12px;color:#2d3a4a;font-weight:500;}
+
+/* FBO Card */
+.fbo-card{background:#f8f9fb;border:1px solid #eef1f5;border-radius:8px;padding:10px 12px;margin-top:10px;}
+.fbo-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.fbo-label{background:#0F1C2E;color:white;padding:2px 6px;border-radius:3px;font-size:8px;font-weight:700;letter-spacing:0.5px;flex-shrink:0;}
+.fbo-name{font-size:12px;font-weight:600;color:#0F1C2E;}
+.fbo-detail{font-size:11px;color:#5a6878;margin-top:4px;display:flex;align-items:flex-start;gap:5px;line-height:1.4;}
+.fbo-detail-icon{font-size:11px;flex-shrink:0;margin-top:1px;}
+.airport.right .fbo-card{text-align:left;}
+
+/* Leg Details */
+.leg-details{padding-top:16px;border-top:1px solid #eef1f5;}
+.detail-section{margin-bottom:14px;}
+.detail-section:last-child{margin-bottom:0;}
+.detail-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#FF5500;margin-bottom:6px;}
+.detail-list{display:flex;flex-direction:column;gap:3px;}
+.detail-list-item{font-size:12px;color:#2d3a4a;font-weight:500;display:flex;align-items:baseline;gap:6px;}
+.detail-num{font-size:10px;color:#8896a7;font-weight:600;min-width:16px;}
+.detail-text{font-size:12px;color:#2d3a4a;line-height:1.6;padding-left:2px;}
+.detail-sub{margin-top:6px;}
+.detail-sub+.detail-sub{margin-top:8px;padding-top:6px;border-top:1px dashed #eef1f5;}
+.detail-sub-label{font-size:10px;font-weight:700;color:#0F1C2E;letter-spacing:0.5px;}
+
+/* Footer */
+.footer{text-align:center;padding:30px 20px 40px;border-top:1px solid #e0e0e0;}
+.footer-logo{height:28px;margin-bottom:12px;opacity:0.6;}
+.footer p{color:#4a5568;font-size:11px;line-height:1.8;}
+.footer a{color:#FF5500;text-decoration:none;font-weight:500;}
+.footer .conf{color:#3a4558;font-size:10px;margin-top:12px;font-style:italic;}
+
+/* Mobile */
+@media(max-width:600px){
+.container{padding:0 12px 30px;}
+.trip-card{padding:20px;}
+.leg{padding:18px;}
+.code{font-size:26px;}
+.route-line{min-width:40px;}
+.info-grid{gap:12px;}
+.hero-aircraft{margin-top:0;}
+}
+</style>
+</head><body>
+<div class="header">
+<img src="https://gmozingo-bit.github.io/valleyjet-portal/logo.png" alt="ValleyJet">
+<p>Private Aviation</p>
+</div>
+
+<div class="container">
+<div class="trip-card" style="animation:fadeUp 0.3s ease both;">
+<div class="trip-header">
+<div class="trip-num">Trip #3088</div>
+<div class="ac-badge">Super Midsize Jet</div>
+</div>
+<div class="info-grid" style="grid-template-columns:1fr 1fr 1fr">
+<div class="info-item"><div class="label">Client</div><div class="value">Honey Shames</div></div>
+<div class="info-item"><div class="label">Aircraft</div><div class="value">Cessna Citation X</div></div>
+<div class="info-item"><div class="label">Passengers</div><div class="value">2</div></div>
+</div>
+</div>
+<div class="legs-title">Flight Details</div>
+
+<div class="leg" style="animation-delay:0.15s">
+    <div class="leg-head"><span class="leg-num">LEG 1</span><span class="leg-meta">4h 18m &bull; 1972 NM</span></div>
+    <div class="route">
+        <div class="airport">
+            <div class="code">KSDL</div>
+            <div class="city">Scottsdale</div>
+            <div class="time-block"><div class="time-label">DEPART</div><div class="time">Sun, May 10, 2026, 12:00 PM</div></div>
+            
+        </div>
+        <div class="route-line"><div class="line"></div><div class="plane-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF5500"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div><div class="line"></div></div>
+        <div class="airport right">
+            <div class="code">KBED</div>
+            <div class="city">Bedford (Boston)</div>
+            <div class="time-block"><div class="time-label">ARRIVE</div><div class="time">Sun, May 10, 2026, 7:18 PM</div></div>
+            
+        </div>
+    </div>
+    <div class="leg-details"><div class="detail-section"><div class="detail-label">Passengers</div><div class="detail-list"><div class="detail-list-item"><span class="detail-num">1.</span>Samuel Shames 3/9/1950</div><div class="detail-list-item"><span class="detail-num">2.</span>Joanna Shames 12/12/1957</div><div class="detail-list-item"><span class="detail-num">3.</span>Dodger (canine)</div></div></div></div>
+</div>
+</div>
+<div class="footer">
+<img src="https://gmozingo-bit.github.io/valleyjet-portal/logo.png" alt="ValleyJet" class="footer-logo">
+<p>ValleyJet LLC &nbsp;&bull;&nbsp; Scottsdale, AZ<br>
+<a href="mailto:charter@valleyjet.com">charter@valleyjet.com</a> &nbsp;&bull;&nbsp; <a href="tel:+14806586129">480.658.6129</a></p>
+<p class="conf">This itinerary is confidential and intended for the named client only.</p>
+</div>
+</body></html>
