@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-27",
+  "last_updated": "2026-09-11",
   "purpose": "Per-operator cancellation terms and 14 CFR 295.24 disclosure data, consumed by sign.valleyjet.com at contract-generation time. The CANCELLATION POLICY section of the client contract is replaced with the selected operator's section_text so the signed document always matches the carrier actually flying the trip. Operators without verified tiers are hard-blocked in the admin UI.",
   "tier_evaluation": "bands are checked smallest within_hours first; the first band whose within_hours >= hours-until-departure wins. If no band matches, baseline_pct applies. Percentages already include the standing +10% ValleyJet markup.",
   "operators": [
@@ -364,9 +364,9 @@
       "cert_verified": true,
       "cancellation": {
         "verified": true,
-        "verified_date": "2026-08-14",
-        "source": "ValleyJet_Terms_and_Conditions_Pinnacle_2026-08-14.txt",
-        "markup_applied": "+10% per standing ValleyJet rule",
+        "verified_date": "2026-09-11",
+        "source": "Pinnacle Air Charter quote WMAMVV-01 (2026-09-11), CANCELLATION FEES / PEAK TRAVEL PERIODS / NO SHOW POLICY sections; also matches masterlist notes from MLHIFE-01 (2026-08-14)",
+        "markup_applied": "+10% per standing ValleyJet rule (Pinnacle raw: domestic 50% within 48h, 100% within 24h; international 50% within 96h, 100% within 48h; peak 10/25/50/100 at booking/14d/7d/3d; one-way, point-to-point and empty-leg 100% from booking; no-show 100%)",
         "tiers": {
           "domestic": {
             "baseline_pct": 10,
@@ -377,40 +377,32 @@
               },
               {
                 "within_hours": 48,
-                "pct": 85
-              },
-              {
-                "within_hours": 72,
                 "pct": 60
               }
             ]
           },
           "one_way": {
+            "baseline_pct": 100,
+            "bands": []
+          },
+          "international": {
             "baseline_pct": 10,
             "bands": [
               {
-                "within_hours": 24,
+                "within_hours": 48,
                 "pct": 100
               },
               {
-                "within_hours": 48,
-                "pct": 85
-              },
-              {
-                "within_hours": 72,
+                "within_hours": 96,
                 "pct": 60
               }
             ]
-          },
-          "international": {
-            "baseline_pct": 100,
-            "bands": []
           },
           "peak": {
             "baseline_pct": 20,
             "bands": [
               {
-                "within_hours": 120,
+                "within_hours": 72,
                 "pct": 100
               },
               {
@@ -424,8 +416,15 @@
             ]
           }
         },
-        "section_text": "CANCELLATION POLICY: ValleyJet LLC will work in good faith with the Client to reschedule or restructure trips when operationally feasible and when the operating Part 135 certificate holder permits; however, the following cancellation tiers apply when changes cannot be accommodated. For domestic flights (including one-way, round-trip, and multi-city itineraries) that do not occur during peak/holiday travel periods, cancellations made more than seventy-two (72) hours before the scheduled departure time will incur a 10% cancellation fee; cancellations made between forty-eight (48) and seventy-two (72) hours before the scheduled departure time will incur a 60% cancellation fee; cancellations made between twenty-four (24) and forty-eight (48) hours before the scheduled departure time will incur an 85% cancellation fee; and cancellations made less than twenty-four (24) hours before the scheduled departure time are 100% non-refundable. For international flights (any itinerary that includes at least one airport outside of the contiguous United States, including itineraries serving Alaska and Hawaii), a 100% cancellation fee applies from the time this Agreement is signed, together with all costs and fees related to international flight planning, permits, and handling. For any itinerary that encompasses peak/holiday travel dates, cancellations made more than fourteen (14) days before the scheduled departure time will incur a 20% cancellation fee; cancellations made between seven (7) and fourteen (14) days before the scheduled departure time will incur a 35% cancellation fee; cancellations made between one hundred twenty (120) hours and seven (7) days before the scheduled departure time will incur a 60% cancellation fee; and cancellations made within one hundred twenty (120) hours of the scheduled departure time are 100% non-refundable. In cases of no-shows, a cancellation fee equal to 100% of the full contract amount, along with any related expenses incurred, will be applied. Any fees incurred by ValleyJet LLC to reserve the execution of the trip, such as PPRs, Special Event fees, etc., will not be refunded. All trip dates are based off the signed contract's original date and time. Should a flight be canceled before cash funds are received, ValleyJet LLC will utilize the credit card hold as payment for the cancellation fee. A 4% payment processing fee will be added to such transactions. No refunds will be given on credit card processing fees. ValleyJet LLC reserves the right to adjust arrival and departure times and locations when necessary to ensure the safety of passengers and crew. Alterations to the trip may occur due to factors such as weather conditions, crew rest requirements, NOTAMs, TFRs, Ground Stops, ATC delays, etc. These changes do not permit cancellations with a refund. Where the operating FAA Part 135 carrier imposes a cancellation policy more restrictive than the tiers stated above, that carrier's policy governs and is passed through to Client in full; this includes, without limitation, one-way, point-to-point, and empty-leg itineraries, which certain carriers treat as 100% non-refundable from the time of booking. ValleyJet LLC will disclose any such carrier-imposed policy to Client in writing at the time of booking. Cancellation fees may be applied as credit toward a future trip booked within twelve (12) months of the original departure date, at ValleyJet LLC's sole discretion and subject to operator approval."
-      }
+        "section_text": "CANCELLATION POLICY: ValleyJet LLC will work in good faith with the Client to reschedule or restructure trips when operationally feasible and when the operating Part 135 certificate holder permits; however, the following cancellation tiers apply when changes cannot be accommodated. For domestic flights that are priced as round-trip or multi-city itineraries and that do not occur during peak/holiday travel periods, cancellations made more than forty-eight (48) hours before the scheduled departure time or the first movement of the aircraft, including positioning legs, will incur a 10% cancellation fee; cancellations made between twenty-four (24) and forty-eight (48) hours before the scheduled departure time or first aircraft movement will incur a 60% cancellation fee; and cancellations made less than twenty-four (24) hours before the scheduled departure time or first aircraft movement are 100% non-refundable. Itineraries priced as one-way or point-to-point (that is, priced at less than round-trip pricing), and empty-leg itineraries, are 100% non-refundable from the time this Agreement is signed, and Client acknowledges that this applies whether or not the scheduled departure date is months in the future. For international flights (any itinerary that includes at least one airport outside of the contiguous United States, including itineraries serving Alaska and Hawaii), cancellations made more than ninety-six (96) hours before the scheduled departure time or first aircraft movement will incur a 10% cancellation fee; cancellations made within ninety-six (96) hours of the scheduled departure time or first aircraft movement will incur a 60% cancellation fee; and cancellations made within forty-eight (48) hours of the scheduled departure time or first aircraft movement are 100% non-refundable; in each case together with any expenses already incurred and all costs and fees related to international flight planning, permits, and handling, which are non-refundable in full. For any itinerary that encompasses peak/holiday travel dates, a 20% cancellation fee applies from the time this Agreement is signed; cancellations made within fourteen (14) days of the scheduled departure date will incur a 35% cancellation fee; cancellations made within seven (7) days of the scheduled departure date will incur a 60% cancellation fee; and cancellations made within seventy-two (72) hours of the scheduled departure date are 100% non-refundable. In cases of no-shows, a cancellation fee equal to 100% of the full contract amount, along with any related expenses incurred, will be applied. Any fees incurred by ValleyJet LLC to reserve the execution of the trip, such as PPRs, Special Event fees, etc., will not be refunded. All trip dates are based off the signed contract's original date and time. Should a flight be canceled before cash funds are received, ValleyJet LLC will utilize the credit card hold as payment for the cancellation fee. A 4% payment processing fee will be added to such transactions. No refunds will be given on credit card processing fees. ValleyJet LLC reserves the right to adjust arrival and departure times and locations when necessary to ensure the safety of passengers and crew. Alterations to the trip may occur due to factors such as weather conditions, crew rest requirements, NOTAMs, TFRs, Ground Stops, ATC delays, etc. These changes do not permit cancellations with a refund. Where the operating FAA Part 135 carrier imposes a cancellation policy more restrictive than the tiers stated above, that carrier's policy governs and is passed through to Client in full; this includes, without limitation, one-way, point-to-point, and empty-leg itineraries, which certain carriers treat as 100% non-refundable from the time of booking. ValleyJet LLC will disclose any such carrier-imposed policy to Client in writing at the time of booking. Cancellation fees may be applied as credit toward a future trip booked within twelve (12) months of the original departure date, at ValleyJet LLC's sole discretion and subject to operator approval."
+      },
+      "additional_clauses": [
+        {
+          "heading": "ADDITIONAL FEES AND EXPENSES",
+          "text": "For this itinerary, catering ordered beyond the aircraft's standard stock and ground transportation arranged through ValleyJet LLC are billed after the flight at cost incurred plus a 15% service fee for domestic trips and a 25% service fee for international trips. Selection of an FBO other than the operating carrier's preferred FBO at any airport is assessed per event at $375 for light jets, $475 for midsize jets, $575 for super-midsize jets, and $675 for large-cabin jets, in addition to any facility fees charged by that FBO.",
+          "source": "Pinnacle Air Charter quote WMAMVV-01 (2026-09-11), CATERING / GROUND TRANSPORTATION / PRICING"
+        }
+      ]
     },
     {
       "short_name": "Silver Air",
