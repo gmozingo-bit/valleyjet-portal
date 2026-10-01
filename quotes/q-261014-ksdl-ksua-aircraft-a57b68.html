@@ -49,6 +49,11 @@
   .classimg{height:280px;overflow:hidden;border-radius:6px;margin:12px 0 14px}
   .classimg img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
   .card{border:1px solid var(--line);border-radius:6px;padding:20px;margin:0 0 14px}
+  .photos{margin:-20px -20px 16px;display:grid;gap:2px;border-radius:6px 6px 0 0;overflow:hidden}
+  .photos.two{grid-template-columns:3fr 2fr}
+  .photos figure{margin:0;position:relative;background:var(--panel)}
+  .photos img{width:100%;height:260px;object-fit:cover;display:block}
+  .photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 6px;font-size:11px;letter-spacing:.5px;color:#fff;background:linear-gradient(transparent,rgba(15,22,38,.75))}
   .card h3{margin:0;font-size:18px}
   .card .meta{font-size:13px;color:var(--muted);margin:4px 0 12px}
   .card .meta b{color:var(--ink)}
@@ -77,7 +82,9 @@
     h1{font-size:26px}
     .three{grid-template-columns:1fr}
     .row{grid-template-columns:104px 1fr 44px;font-size:12px}
-    .classimg{height:200px}
+    .photos img{height:190px}
+    .photos.two{grid-template-columns:1fr}
+    .photos.two figure+figure img{height:150px}
   }
 </style>
 </head>
@@ -140,9 +147,9 @@
   <!-- SUPER MIDSIZE -->
   <h2>Super Midsize Jets</h2>
   <p class="sub">The bigger, faster end of your options.</p>
-  <div class="classimg"><img src="https://valleyjet.com/wp-content/uploads/2026/01/Gemini_Generated_Image_m2xqsvm2xqsvm2xq-1.png" alt="Super Midsize Jet interior cabin"></div>
 
   <div class="card">
+    <div class="photos"><figure><img src="https://valleyjet.com/wp-content/uploads/2026/01/Gemini_Generated_Image_m2xqsvm2xqsvm2xq-1.png" alt="Super midsize cabin" loading="lazy"><figcaption>Representative super midsize cabin. Photos of this exact aircraft on request.</figcaption></figure></div>
     <p class="eyebrow">Most room</p>
     <h3>Bombardier Challenger 300</h3>
     <p class="meta"><b>$41,049</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats up to 8 or 9</p>
@@ -152,6 +159,7 @@
   </div>
 
   <div class="card">
+    <div class="photos two"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/citationx-cabin.jpg" alt="Citation X cabin" loading="lazy"><figcaption>Cabin, sister Citation X</figcaption></figure><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/citationx-exterior.jpg" alt="Citation X on the ramp" loading="lazy"><figcaption>This aircraft</figcaption></figure></div>
     <p class="eyebrow">Fastest, lowest price</p>
     <h3>Cessna Citation X</h3>
     <p class="meta"><b>$34,592</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats up to 8</p>
@@ -163,9 +171,9 @@
   <!-- MIDSIZE -->
   <h2>Midsize Jets</h2>
   <p class="sub">Comfortable for two with room to stretch out. A slight stoop to walk the aisle.</p>
-  <div class="classimg"><img src="https://valleyjet.com/wp-content/uploads/2025/12/VJ-Citation-XLS-scaled.png" alt="Midsize Jet interior cabin"></div>
 
   <div class="card">
+    <div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/learjet60-cabin.jpg" alt="Learjet 60 cabin" loading="lazy"><figcaption>Cabin, this aircraft</figcaption></figure></div>
     <h3>Learjet 60</h3>
     <p class="meta"><b>$34,934</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats 6 to 7</p>
     <div class="chips"><span class="chip">Quick climber</span><span class="chip">Shortest cabin</span><span class="chip">Smallest bag space</span></div>
@@ -174,6 +182,7 @@
   </div>
 
   <div class="card">
+    <div class="photos two"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/hawker800xp-cabin.jpg" alt="Hawker 800XP cabin" loading="lazy"><figcaption>Cabin, sister Hawker 800XP</figcaption></figure><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/hawker800xp-exterior.jpg" alt="Hawker 800XP on the ramp" loading="lazy"><figcaption>This aircraft</figcaption></figure></div>
     <p class="eyebrow">Best value for room</p>
     <h3>Hawker 800XP</h3>
     <p class="meta"><b>$35,188</b> &nbsp;·&nbsp; Sun Oct 18* &nbsp;·&nbsp; seats up to 8</p>
@@ -183,6 +192,7 @@
   </div>
 
   <div class="card">
+    <div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/sovereign-cabin.jpg" alt="Citation Sovereign+ cabin" loading="lazy"><figcaption>Cabin, Sovereign+ from this fleet</figcaption></figure></div>
     <h3>Cessna Citation Sovereign+</h3>
     <p class="meta"><b>$36,702</b> &nbsp;·&nbsp; Sat Oct 17* &nbsp;·&nbsp; seats up to 9</p>
     <div class="chips"><span class="chip go">Longest midsize cabin</span><span class="chip go">Big bag space</span><span class="chip">Newest design here</span></div>
@@ -191,6 +201,7 @@
   </div>
 
   <div class="card">
+    <div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/sua/hawker900xp-cabin.jpg" alt="Hawker 900XP cabin" loading="lazy"><figcaption>Cabin, this aircraft</figcaption></figure></div>
     <h3>Hawker 900XP</h3>
     <p class="meta"><b>$38,024</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats up to 8</p>
     <div class="chips"><span class="chip">Same roomy Hawker cabin</span><span class="chip">More range, newer avionics</span></div>
@@ -200,7 +211,7 @@
 
   <div class="card">
     <h3>About Wi-Fi</h3>
-    <p style="margin:0">Wi-Fi varies tail by tail, even within the same model, so I don't want to promise it on a type. Once you narrow it to one or two, I'll confirm whether that specific aircraft has it and send you real photos of that exact cabin.</p>
+    <p style="margin:0">Wi-Fi varies tail by tail, even within the same model, so I don't want to promise it on a type. Once you narrow it to one or two, I'll confirm whether that specific aircraft has it and send any extra photos you'd like to see.</p>
   </div>
 
   <div class="take">
@@ -210,11 +221,11 @@
     <p><b>If bags are the main concern on a budget,</b> look at the Sovereign+.</p>
   </div>
 
-  <p class="note">Images shown may not depict the exact aircraft quoted but represent a similar model to illustrate the cabin experience.</p>
+  <p class="note">Photos marked "this aircraft" are the actual jet on your quote. Where I didn't have a cabin photo of the exact jet, I've shown a sister aircraft of the same model, and the Challenger 300 photo is representative. Interiors vary a little from jet to jet, so I'll confirm the exact cabin before you book.</p>
 </div>
 
 <div class="cta">
-  <p style="font-size:15px;margin:0 0 18px">Tell me which one or two catch your eye and I'll send photos of those exact cabins and confirm Wi-Fi and the bag fit.</p>
+  <p style="font-size:15px;margin:0 0 18px">Tell me which one or two catch your eye and I'll confirm Wi-Fi and the bag fit and send any more photos you'd like.</p>
   <a class="btn" href="mailto:gmozingo@valleyjet.com?subject=Scottsdale%20to%20Stuart%20aircraft">Email Garrett</a>
 </div>
 
