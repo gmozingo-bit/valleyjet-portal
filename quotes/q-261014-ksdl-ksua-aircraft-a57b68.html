@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ValleyJet - Scottsdale to Stuart, Aircraft Guide</title>
+<style>
+  :root{--navy:#0F1626;--orange:#FF533D;--ink:#0F1626;--muted:#3d4f6e;--soft:#aab4c8;--line:#e3e7ee;--panel:#f6f8fb;--bg:#f0f2f5;--card:#ffffff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:Helvetica,Arial,sans-serif;color:var(--ink);-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 0}
+  .sheet{background:var(--card);border-radius:8px;overflow:hidden}
+  .hero{background:var(--navy);position:relative}
+  .hero .stripe{height:5px;background:linear-gradient(90deg,#FF533D 0%,#ff7a5e 50%,#FF533D 100%)}
+  .hero .in{padding:36px 40px 40px}
+  .hero img{height:60px;width:auto;display:block;margin-bottom:28px}
+  h1{margin:0 0 12px;font-size:32px;line-height:1.2;color:#fff;font-weight:bold}
+  .kicker{margin:0 0 20px;font-size:13px;font-weight:bold;color:var(--orange);letter-spacing:2px;text-transform:uppercase}
+  .hero p.lede{margin:0;font-size:15px;color:var(--soft);line-height:1.6}
+  .bar{background:var(--orange);padding:14px 40px;color:#fff;font-size:13px;font-weight:bold;letter-spacing:1px}
+  .body{padding:40px 40px 8px}
+  p{font-size:15px;line-height:1.6;margin:0 0 16px}
+  h2{font-size:20px;margin:36px 0 6px;font-weight:bold}
+  h2:first-child{margin-top:0}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+  .eyebrow{font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin:0 0 6px}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 8px}
+  .three div{background:var(--panel);border-radius:6px;padding:16px}
+  .three b{display:block;font-size:14px;margin-bottom:6px}
+  .three span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+  /* headroom chart */
+  .chart{border:1px solid var(--line);border-radius:6px;padding:18px 18px 10px;margin:8px 0 0}
+  .row{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:10px;margin:0 0 10px;font-size:13px}
+  .row .nm{font-weight:bold}
+  .track{position:relative;height:16px;background:var(--panel);border-radius:3px}
+  .fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#9aa8c0}
+  .fill.hi{background:var(--orange)}
+  .mark{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--navy)}
+  .row .v{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .legend{font-size:12px;color:var(--muted);margin:6px 0 4px}
+  /* table */
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 0}
+  .tbl th{text-align:left;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:8px 8px;border-bottom:2px solid var(--navy);white-space:nowrap}
+  .tbl td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+  .tbl td:first-child{font-weight:bold}
+  .tbl .cls{font-weight:normal;color:var(--muted);font-size:12px;display:block}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* class blocks + aircraft cards */
+  .classimg{height:280px;overflow:hidden;border-radius:6px;margin:12px 0 14px}
+  .classimg img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+  .card{border:1px solid var(--line);border-radius:6px;padding:20px;margin:0 0 14px}
+  .card h3{margin:0;font-size:18px}
+  .card .meta{font-size:13px;color:var(--muted);margin:4px 0 12px}
+  .card .meta b{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .chip{font-size:12px;background:var(--panel);border-radius:999px;padding:5px 10px;color:var(--ink)}
+  .chip.go{background:#fff0ed;color:#b53523;font-weight:bold}
+  .card p{font-size:14px;margin:0 0 10px}
+  .card a{color:var(--orange);font-size:13px;font-weight:bold;text-decoration:none}
+  .take{background:var(--navy);color:#fff;border-radius:6px;padding:24px;margin:28px 0 8px}
+  .take p{color:#dfe5ef;font-size:14px;margin:0 0 10px}
+  .take p:last-child{margin:0}
+  .take b{color:#fff}
+  .note{font-size:13px;color:#555;font-style:italic;line-height:1.6;margin:18px 0 0}
+  .cta{text-align:center;padding:32px 40px 8px}
+  .btn{display:inline-block;background:var(--orange);color:#fff;font-size:14px;font-weight:bold;text-decoration:none;padding:14px 32px;border-radius:4px;letter-spacing:1px}
+  .sign{padding:32px 40px 40px}
+  .sign p{font-size:14px;margin:0 0 2px}
+  .foot{background:var(--navy);padding:26px 40px;text-align:center}
+  .foot img{height:30px;width:auto;display:block;margin:0 auto 12px}
+  .foot p{margin:0;font-size:13px;color:var(--muted);letter-spacing:1px}
+  @media (max-width:640px){
+    .wrap{padding:0}
+    .sheet{border-radius:0}
+    .hero .in,.body,.cta,.sign{padding-left:16px;padding-right:16px}
+    .bar,.foot{padding-left:16px;padding-right:16px}
+    h1{font-size:26px}
+    .three{grid-template-columns:1fr}
+    .row{grid-template-columns:104px 1fr 44px;font-size:12px}
+    .classimg{height:200px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap"><div class="sheet">
+
+<div class="hero">
+  <div class="stripe"></div>
+  <div class="in">
+    <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+    <h1>Your Aircraft, Side by Side</h1>
+    <p class="kicker">Scottsdale to Stuart &nbsp;|&nbsp; October 14 to 20 &nbsp;|&nbsp; 2 Passengers</p>
+    <p class="lede">A plain-English guide to the six jets on your quote: how much room you'll have, where you can stand, where the bags go, and how each one compares.</p>
+  </div>
+</div>
+<div class="bar">Same six aircraft and the same prices as your quote. Nothing has changed.</div>
+
+<div class="body">
+
+  <p>Hi John,</p>
+  <p>Great question, and you're not alone. Most people don't know these jets by name until they've flown a few. Here's what actually separates them, so you and your wife can pick the one that feels right.</p>
+  <p>All six fly the 1,680 nautical miles nonstop, about 3 hours 45 minutes to 4 hours 15 minutes in the air. All six have a private, enclosed lavatory, leather club seating, and two pilots up front. At this size there's no flight attendant, so drinks and snacks are stocked in the cabin for you.</p>
+
+  <h2>The three things that really differ</h2>
+  <div class="three">
+    <div><b>Headroom</b><span>Whether you can stand straight up or walk the aisle with a slight stoop.</span></div>
+    <div><b>Cabin width</b><span>How much elbow and leg room there is between the facing seats.</span></div>
+    <div><b>Bag space</b><span>Matters for your checked bags and Pelican cases. Some jets let you reach your bags during the flight.</span></div>
+  </div>
+
+  <h2>Can you stand up?</h2>
+  <p class="sub">Cabin height down the center aisle. The dashed line is a 6-foot person.</p>
+  <div class="chart" role="img" aria-label="Cabin height: Challenger 300 6 ft 1 in; Hawker 800XP and 900XP 5 ft 9 in; Citation X, Learjet 60 and Citation Sovereign+ 5 ft 8 in.">
+    <!-- scale: 0 to 7 ft (84 in). 6 ft = 85.7% -->
+    <div class="row"><span class="nm">Challenger 300</span><span class="track"><span class="fill hi" style="width:86.9%"></span><span class="mark" style="left:85.7%"></span></span><span class="v">6'1"</span></div>
+    <div class="row"><span class="nm">Hawker 800XP</span><span class="track"><span class="fill" style="width:82.1%"></span><span class="mark" style="left:85.7%"></span></span><span class="v">5'9"</span></div>
+    <div class="row"><span class="nm">Hawker 900XP</span><span class="track"><span class="fill" style="width:82.1%"></span><span class="mark" style="left:85.7%"></span></span><span class="v">5'9"</span></div>
+    <div class="row"><span class="nm">Citation X</span><span class="track"><span class="fill" style="width:81.0%"></span><span class="mark" style="left:85.7%"></span></span><span class="v">5'8"</span></div>
+    <div class="row"><span class="nm">Learjet 60</span><span class="track"><span class="fill" style="width:81.0%"></span><span class="mark" style="left:85.7%"></span></span><span class="v">5'8"</span></div>
+    <div class="row"><span class="nm">Sovereign+</span><span class="track"><span class="fill" style="width:81.0%"></span><span class="mark" style="left:85.7%"></span></span><span class="v">5'8"</span></div>
+    <p class="legend">The Challenger 300 is the only one on your list where most adults stand fully upright. In the other five, you'll walk with a slight bend, which is normal for midsize jets.</p>
+  </div>
+
+  <h2>At a glance</h2>
+  <div class="scroll">
+  <table class="tbl">
+    <thead><tr><th>Aircraft</th><th>Headroom</th><th>Width</th><th>Cabin length</th><th>Bags</th><th>Your price</th></tr></thead>
+    <tbody>
+      <tr><td>Challenger 300<span class="cls">Super Midsize</span></td><td>6'1"</td><td>7'2"</td><td>28'7"</td><td>106 cu ft, reachable in flight</td><td>$41,049</td></tr>
+      <tr><td>Citation X<span class="cls">Super Midsize</span></td><td>5'8"</td><td>5'6"</td><td>23'11"</td><td>82 cu ft</td><td>$34,592</td></tr>
+      <tr><td>Learjet 60<span class="cls">Midsize</span></td><td>5'8"</td><td>5'11"</td><td>17'8"</td><td>50 cu ft</td><td>$34,934</td></tr>
+      <tr><td>Hawker 800XP<span class="cls">Midsize</span></td><td>5'9"</td><td>6'0"</td><td>21'4"</td><td>About 50 cu ft</td><td>$35,188*</td></tr>
+      <tr><td>Citation Sovereign+<span class="cls">Midsize</span></td><td>5'8"</td><td>5'6"</td><td>25'3"</td><td>100 cu ft</td><td>$36,702*</td></tr>
+      <tr><td>Hawker 900XP<span class="cls">Midsize</span></td><td>5'9"</td><td>6'0"</td><td>21'4"</td><td>About 50 cu ft</td><td>$38,024</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note" style="margin-top:10px;font-style:normal">Manufacturer cabin figures, rounded. Prices include your first-flight credit, same as your quote. * Priced on Oct 18 (Hawker 800XP) and Oct 17 (Sovereign+); every other option is priced on Wed Oct 14.</p>
+
+  <!-- SUPER MIDSIZE -->
+  <h2>Super Midsize Jets</h2>
+  <p class="sub">The bigger, faster end of your options.</p>
+  <div class="classimg"><img src="https://valleyjet.com/wp-content/uploads/2026/01/Gemini_Generated_Image_m2xqsvm2xqsvm2xq-1.png" alt="Super Midsize Jet interior cabin"></div>
+
+  <div class="card">
+    <p class="eyebrow">Most room</p>
+    <h3>Bombardier Challenger 300</h3>
+    <p class="meta"><b>$41,049</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats up to 8 or 9</p>
+    <div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip go">Widest cabin</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div>
+    <p>This is the one that feels like a small room rather than a tube. You can stand up and walk the cabin normally, the floor is flat the whole way back, and it's over a foot and a half wider than the Citations. The baggage hold is inside the pressurized cabin, so you can get to a bag mid-flight, and it's the most comfortable fit for your checked bags and Pelican cases.</p>
+    <a href="https://en.wikipedia.org/wiki/Bombardier_Challenger_300" target="_blank">Learn more and see photos &rarr;</a>
+  </div>
+
+  <div class="card">
+    <p class="eyebrow">Fastest, lowest price</p>
+    <h3>Cessna Citation X</h3>
+    <p class="meta"><b>$34,592</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats up to 8</p>
+    <div class="chips"><span class="chip go">Fastest on your list</span><span class="chip">Long cabin</span><span class="chip">Good bag space</span></div>
+    <p>Built for speed. For years it was the fastest business jet in the world, so it puts you in Stuart at the early end of the window. The cabin is long, with room to spread out, but it's narrower than the Hawkers and Challenger, so it feels more like a sleek, tall-backed sedan than a lounge. It's also the lowest price on your quote.</p>
+    <a href="https://en.wikipedia.org/wiki/Cessna_Citation_X" target="_blank">Learn more and see photos &rarr;</a>
+  </div>
+
+  <!-- MIDSIZE -->
+  <h2>Midsize Jets</h2>
+  <p class="sub">Comfortable for two with room to stretch out. A slight stoop to walk the aisle.</p>
+  <div class="classimg"><img src="https://valleyjet.com/wp-content/uploads/2025/12/VJ-Citation-XLS-scaled.png" alt="Midsize Jet interior cabin"></div>
+
+  <div class="card">
+    <h3>Learjet 60</h3>
+    <p class="meta"><b>$34,934</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats 6 to 7</p>
+    <div class="chips"><span class="chip">Quick climber</span><span class="chip">Shortest cabin</span><span class="chip">Smallest bag space</span></div>
+    <p>The sports car of the group. Fast and smooth, with a cozy cabin that's plenty for two people. It's the shortest cabin and has the least bag space here, so I'd want to confirm your bags and cases fit before you choose this one.</p>
+    <a href="https://en.wikipedia.org/wiki/Learjet_60" target="_blank">Learn more and see photos &rarr;</a>
+  </div>
+
+  <div class="card">
+    <p class="eyebrow">Best value for room</p>
+    <h3>Hawker 800XP</h3>
+    <p class="meta"><b>$35,188</b> &nbsp;·&nbsp; Sun Oct 18* &nbsp;·&nbsp; seats up to 8</p>
+    <div class="chips"><span class="chip go">Widest midsize</span><span class="chip">Quiet, smooth ride</span></div>
+    <p>A long-time favorite for comfort. The Hawker cabin is the widest and tallest of the midsize jets, six feet wide with a little more headroom than the Citations, so it feels roomy for its class. A good balance of space and price.</p>
+    <a href="https://en.wikipedia.org/wiki/Hawker_800" target="_blank">Learn more and see photos &rarr;</a>
+  </div>
+
+  <div class="card">
+    <h3>Cessna Citation Sovereign+</h3>
+    <p class="meta"><b>$36,702</b> &nbsp;·&nbsp; Sat Oct 17* &nbsp;·&nbsp; seats up to 9</p>
+    <div class="chips"><span class="chip go">Longest midsize cabin</span><span class="chip go">Big bag space</span><span class="chip">Newest design here</span></div>
+    <p>The newest design of the midsize options, with the longest cabin and twice the bag space of the Hawkers and the Lear. Narrower than the Hawker, but there's room to spread out lengthwise. A strong pick if bags are the priority and the Challenger is more than you want to spend.</p>
+    <a href="https://en.wikipedia.org/wiki/Cessna_Citation_Sovereign" target="_blank">Learn more and see photos &rarr;</a>
+  </div>
+
+  <div class="card">
+    <h3>Hawker 900XP</h3>
+    <p class="meta"><b>$38,024</b> &nbsp;·&nbsp; Wed Oct 14 &nbsp;·&nbsp; seats up to 8</p>
+    <div class="chips"><span class="chip">Same roomy Hawker cabin</span><span class="chip">More range, newer avionics</span></div>
+    <p>The updated version of the 800XP. Same wide, comfortable cabin, with more efficient engines and more range. On a trip like yours you'll feel about the same in either Hawker, so the 900XP mainly makes sense if Wednesday the 14th is the day you want.</p>
+    <a href="https://en.wikipedia.org/wiki/Hawker_800" target="_blank">Learn more and see photos &rarr;</a>
+  </div>
+
+  <div class="card">
+    <h3>About Wi-Fi</h3>
+    <p style="margin:0">Wi-Fi varies tail by tail, even within the same model, so I don't want to promise it on a type. Once you narrow it to one or two, I'll confirm whether that specific aircraft has it and send you real photos of that exact cabin.</p>
+  </div>
+
+  <div class="take">
+    <p class="eyebrow" style="color:#FF533D">My take</p>
+    <p><b>If standing up and space matter most,</b> it's the Challenger 300. It's the only true stand-up cabin on the list and the easiest fit for your bags and cases.</p>
+    <p><b>If you'd like the best value,</b> the Citation X is the lowest price and the fastest, and the Hawker 800XP gives you the roomiest midsize cabin for about the same money.</p>
+    <p><b>If bags are the main concern on a budget,</b> look at the Sovereign+.</p>
+  </div>
+
+  <p class="note">Images shown may not depict the exact aircraft quoted but represent a similar model to illustrate the cabin experience.</p>
+</div>
+
+<div class="cta">
+  <p style="font-size:15px;margin:0 0 18px">Tell me which one or two catch your eye and I'll send photos of those exact cabins and confirm Wi-Fi and the bag fit.</p>
+  <a class="btn" href="mailto:gmozingo@valleyjet.com?subject=Scottsdale%20to%20Stuart%20aircraft">Email Garrett</a>
+</div>
+
+<div class="sign">
+  <p>Happy to walk through it by phone too. Just give me a call anytime.</p>
+  <br>
+  <p>Best regards,</p>
+  <p style="font-size:15px;font-weight:bold">Garrett Mozingo</p>
+  <p style="font-size:13px;color:#3d4f6e">Owner &amp; Founder, ValleyJet</p>
+  <p style="font-size:13px;color:#3d4f6e">480.658.6129 &nbsp;|&nbsp; <a href="mailto:gmozingo@valleyjet.com" style="color:#FF533D;text-decoration:none">gmozingo@valleyjet.com</a></p>
+</div>
+
+<div class="foot">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <p>VALLEYJET.COM &middot; 480.658.6129 &middot; Scottsdale, AZ 85251</p>
+</div>
+
+</div></div>
+</body>
+</html>
