@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-10-07",
+  "last_updated": "2026-10-15",
   "purpose": "Per-operator cancellation terms and 14 CFR 295.24 disclosure data, consumed by sign.valleyjet.com at contract-generation time. The CANCELLATION POLICY section of the client contract is replaced with the selected operator's section_text so the signed document always matches the carrier actually flying the trip. Operators without verified tiers are hard-blocked in the admin UI.",
   "tier_evaluation": "bands are checked smallest within_hours first; the first band whose within_hours >= hours-until-departure wins. If no band matches, baseline_pct applies. Percentages already include the standing +10% ValleyJet markup.",
   "operators": [
@@ -755,6 +755,70 @@
           "heading": "ADDITIONAL FEES AND EXPENSES",
           "text": "For this itinerary, fuel is priced at $7.50 per gallon and any fuel cost above that rate is billed after the flight at actual cost. A domestic daily minimum of 2.0 flight hours applies, and actual flight time that exceeds the estimate due to air traffic control, weather, or other factors is billed accordingly. If the aircraft is returned in substandard condition, a cleaning fee of $500 or the actual cost of cleaning, whichever is greater, will be charged to the card on file.",
           "source": "Alpha Jet Charter quote 75SUL5-01 (2026-10-07), TRIP CHARGES / FUEL SURCHARGE / CLEANING/DAMAGE FEES"
+        }
+      ]
+    },
+    {
+      "short_name": "Onward Jets",
+      "legal_entity_name": "nextair LLC",
+      "faa_part_135_cert": "16AA979L",
+      "legal_name_verified": true,
+      "cert_verified": false,
+      "carrier_note": "Onward Jets, LLC is a sales agent, not a Part 135 carrier. Its contract lists nextair LLC (16AA979L), Superior Air Charter LLC (9SUA667M), Premier Air Charter LLC (9SUA667M) and Air 7 LLC (GQRA540N). nextair chosen because FlightListPro lists the fleet as 'ONWARD JETS (operated by NEXTAIR LLC)'. Confirm the operating certificate per tail with Onward before each booking.",
+      "cancellation": {
+        "verified": true,
+        "verified_date": "2026-10-15",
+        "source": "Onward Jets quote ZSJEHO-01 (PDF 261220.VALLEYJET.ZSJEHO-01.pdf, received 2026-10-13), sections 1, 2.1-2.5",
+        "markup_applied": "+10% per standing ValleyJet rule (Onward raw: 0% before 48h, 50% within 48h, 100% within 24h; one-way non-refundable once booked; international 100% within 72h; delay over 20 min without approval or over 1 hr regardless = no-show; no stated peak policy, ValleyJet standing peak 100% and no-show 100% applied)",
+        "tiers": {
+          "domestic": {
+            "baseline_pct": 10,
+            "bands": [
+              {
+                "within_hours": 24,
+                "pct": 100
+              },
+              {
+                "within_hours": 48,
+                "pct": 60
+              }
+            ]
+          },
+          "one_way": {
+            "baseline_pct": 100,
+            "bands": []
+          },
+          "international": {
+            "baseline_pct": 10,
+            "bands": [
+              {
+                "within_hours": 72,
+                "pct": 100
+              }
+            ]
+          },
+          "peak": {
+            "baseline_pct": 100,
+            "bands": []
+          }
+        },
+        "section_text": "CANCELLATION POLICY: ValleyJet LLC will work in good faith with the Client to reschedule or restructure trips when operationally feasible and when the operating Part 135 certificate holder permits; however, the following cancellation tiers apply when changes cannot be accommodated. For domestic round-trip and multi-leg flights that do not occur during peak/holiday travel periods, cancellations made more than forty-eight (48) hours before the scheduled departure time will incur a 10% cancellation fee, cancellations made within forty-eight (48) hours of the scheduled departure time will incur a 60% cancellation fee, and cancellations made within twenty-four (24) hours of the scheduled departure time will incur a 100% cancellation fee. Once booked, one-way trips are 100% non-refundable. For international flights (any itinerary that includes at least one airport outside of the contiguous United States, including itineraries serving Alaska and Hawaii), cancellations made more than seventy-two (72) hours before the scheduled departure time will incur a 10% cancellation fee, and cancellations made within seventy-two (72) hours of the scheduled departure time will incur a 100% cancellation fee, and any international fees incurred in preparation for the trip are non-refundable regardless of when the trip is canceled. Trips scheduled during peak travel periods are subject to a 100% cancellation charge. Every departure must occur at its scheduled time and any delay must be communicated in advance. If a departure is delayed by more than twenty (20) minutes without prior approval from the operating carrier, or by more than one (1) hour regardless of prior notice, it will be treated as a no-show. In cases of no-shows, a cancellation fee equal to 100% of the full contract amount, along with any related expenses incurred, will be applied. Any fees incurred by ValleyJet LLC to reserve the execution of the trip, such as PPRs, Special Event fees, slot reservations, etc., will not be refunded, and the Client is responsible for any additional costs relating to such fees in the event of a trip change or cancellation. All trip dates are based off the signed contract's original date and time. Should a flight be canceled before cash funds are received, ValleyJet LLC will utilize the credit card hold as payment for the cancellation fee. A 4.5% payment processing fee will be added to such transactions. No refunds will be given on credit card processing fees. ValleyJet LLC reserves the right to adjust arrival and departure times and locations when necessary to ensure the safety of passengers and crew. Alterations to the trip may occur due to factors such as weather conditions, crew rest requirements, NOTAMs, TFRs, Ground Stops, ATC delays, etc. These changes do not permit cancellations with a refund. Where the operating FAA Part 135 carrier imposes a cancellation policy more restrictive than the tiers stated above, that carrier's policy governs and is passed through to Client in full. ValleyJet LLC will disclose any such carrier-imposed policy to Client in writing at the time of booking. Cancellation fees may be applied as credit toward a future trip booked within twelve (12) months of the original departure date, at ValleyJet LLC's sole discretion and subject to operator approval."
+      },
+      "additional_clauses": [
+        {
+          "heading": "PAYMENT",
+          "text": "For this carrier, full payment is due forty-eight (48) hours prior to departure unless alternative payment terms have been agreed to in writing.",
+          "source": "Onward Jets quote ZSJEHO-01 (PDF 261220.VALLEYJET.ZSJEHO-01.pdf, received 2026-10-13), sections 1, 2.1-2.5, section 2.1"
+        },
+        {
+          "heading": "ADDITIONAL FEES AND EXPENSES",
+          "text": "For this itinerary, de-icing, hangar fees, and weather delay costs are billed after the flight at actual cost, and a final invoice for any such costs will be provided within five (5) days after the flight.",
+          "source": "Onward Jets quote ZSJEHO-01 (PDF 261220.VALLEYJET.ZSJEHO-01.pdf, received 2026-10-13), sections 1, 2.1-2.5, page 1 notes and section 1"
+        },
+        {
+          "heading": "CREDIT CARD PROCESSING FEES",
+          "text": "For this carrier, a 4.5% processing fee applies to all credit card payments.",
+          "source": "Onward Jets quote ZSJEHO-01 (PDF 261220.VALLEYJET.ZSJEHO-01.pdf, received 2026-10-13), sections 1, 2.1-2.5, page 1 notes"
         }
       ]
     }
