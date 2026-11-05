@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ValleyJet - Scottsdale to Aspen, Aircraft Guide</title>
+<style>
+  :root{--navy:#0F1626;--orange:#FF533D;--ink:#0F1626;--muted:#3d4f6e;--soft:#aab4c8;--line:#e3e7ee;--panel:#f6f8fb;--bg:#f0f2f5;--card:#ffffff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);-webkit-text-size-adjust:100%}
+  b,strong{font-weight:bold}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 0}
+  .sheet{background:var(--card);border-radius:8px;overflow:hidden}
+  .hero{background:var(--navy)}
+  .hero .stripe{height:5px;background:linear-gradient(90deg,#FF533D 0%,#ff7a5e 50%,#FF533D 100%)}
+  .hero .in{padding:36px 40px 40px}
+  .hero img{height:60px;width:auto;display:block;margin-bottom:28px;margin-left:-22px}
+  h1{margin:0 0 12px;font-size:32px;line-height:1.2;color:#fff;font-weight:bold}
+  .kicker{margin:0 0 20px;font-size:13px;font-weight:bold;color:var(--orange);letter-spacing:2px;text-transform:uppercase}
+  .hero p.lede{margin:0;font-size:16px;font-weight:300;color:var(--soft);line-height:1.6}
+  .bar{background:var(--orange);padding:14px 40px;color:#fff;font-size:14px;font-weight:bold}
+  .body{padding:40px 40px 8px}
+  p{font-size:16px;font-weight:300;line-height:1.6;margin:0 0 16px}
+  h2{font-size:20px;margin:36px 0 6px;font-weight:bold}
+  .sub{color:var(--muted);font-size:14px;font-weight:normal;margin:0 0 18px}
+  .eyebrow{font-size:14px;font-weight:bold;color:var(--orange);margin:0 0 6px}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0}
+  .three div{background:var(--panel);border-radius:6px;padding:16px}
+  .three b{display:block;font-size:14px;margin-bottom:6px}
+  .three span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+  .chart{border:1px solid var(--line);border-radius:6px;padding:18px 18px 10px;margin:8px 0 0}
+  .row{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:10px;margin:0 0 10px;font-size:13px}
+  .row .nm{font-weight:bold}
+  .track{position:relative;height:16px;background:var(--panel);border-radius:3px}
+  .fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#9aa8c0}
+  .fill.hi{background:var(--orange)}
+  .mark{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--navy)}
+  .row .v{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .legend{font-size:12px;color:var(--muted);margin:6px 0 4px}
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 0}
+  .tbl th{text-align:left;font-size:12px;font-weight:bold;color:var(--muted);padding:8px;border-bottom:2px solid var(--navy);white-space:nowrap}
+  .tbl td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+  .tbl td:first-child{font-weight:bold}
+  .tbl .cls{font-weight:normal;color:var(--muted);font-size:12px;display:block}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .card{border:1px solid var(--line);border-radius:6px;padding:20px;margin:0 0 14px}
+  .photos{margin:-20px -20px 16px;display:grid;gap:2px;border-radius:6px 6px 0 0;overflow:hidden}
+  .photos.two{grid-template-columns:3fr 2fr}
+  .photos figure{margin:0;position:relative;background:var(--panel)}
+  .photos img{width:100%;height:260px;object-fit:cover;display:block}
+  .photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 6px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(15,22,38,.75))}
+  .card h3{margin:0;font-size:18px}
+  .card .meta{font-size:13px;color:var(--muted);margin:4px 0 12px}
+  .card .meta b{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .chip{font-size:12px;background:var(--panel);border-radius:999px;padding:5px 10px;color:var(--ink)}
+  .chip.go{background:#fff0ed;color:#b53523;font-weight:bold}
+  .card p{font-size:15px;font-weight:300;margin:0 0 10px}
+  .card p.eyebrow,.take p.eyebrow,p.eyebrow{font-size:14px;font-weight:bold}
+  .card .meta,.legend,.three span,.card .meta *,p.legend{font-weight:normal}
+  .tbl th,.tbl td{padding-left:6px;padding-right:6px}
+  .card a{color:var(--orange);font-size:13px;font-weight:bold;text-decoration:none}
+  .take{background:var(--navy);color:#fff;border-radius:6px;padding:24px;margin:28px 0 8px}
+  .take p{color:#dfe5ef;font-size:15px;font-weight:300;margin:0 0 10px}
+  .take p:last-child{margin:0}
+  .take b{color:#fff}
+  .note{font-size:13px;font-weight:normal;color:#555;line-height:1.6;margin:18px 0 0}
+  .cta{text-align:center;padding:32px 40px 8px}
+  .btn{display:inline-block;background:var(--orange);color:#fff;font-size:15px;font-weight:bold;text-decoration:none;padding:14px 30px;border-radius:4px}
+  .sign{padding:32px 40px 40px}
+  .sign p{font-size:15px;margin:0 0 2px}
+  .foot{background:var(--navy);padding:26px 40px;text-align:center}
+  .foot img{height:30px;width:auto;display:block;margin:0 auto 12px}
+  .foot p{margin:0;font-size:13px;font-weight:300;color:var(--soft);letter-spacing:1px}
+  @media (max-width:640px){
+    .wrap{padding:0}
+    .sheet{border-radius:0}
+    .hero .in,.body,.cta,.sign,.bar,.foot{padding-left:22px;padding-right:22px}
+    h1{font-size:26px}
+    .three{grid-template-columns:1fr}
+    .row{grid-template-columns:104px 1fr 44px;font-size:12px}
+    .photos img{height:190px}
+    .photos.two{grid-template-columns:1fr}
+    .photos.two figure+figure img{height:150px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap"><div class="sheet">
+<div class="hero"><div class="stripe"></div><div class="in">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <h1>Your Aircraft, Side by Side</h1>
+  <p class="kicker">Scottsdale to Aspen &nbsp;|&nbsp; December 19 to 26 &nbsp;|&nbsp; 3 Passengers</p>
+  <p class="lede">A plain-English guide to the 15 aircraft on your quote: how much room you'll have, how each cabin feels, where the bags go, and how each one compares.</p>
+</div></div>
+<div class="bar">Same 15 aircraft and the same prices as your quote.</div>
+<div class="body">
+  <p>Hi David,</p>
+  <p>Most people don&#x27;t know these aircraft by name until they&#x27;ve flown a few. Here&#x27;s what actually separates them, so you can pick the one that feels right.</p>
+  <p>All of these fly the 414 nautical miles nonstop, about 1 hour 20 minutes to 1 hour 40 minutes in the jets and about 2 hours in the turboprops. Lavatory setups differ between these aircraft, so I&#x27;ve noted each one below.</p>
+  <h2>The three things that really differ</h2>
+  <div class="three">
+    <div><b>Cabin height</b><span>Whether it's a walk-around cabin or a seated cabin you settle into, like first class.</span></div>
+    <div><b>Cabin width</b><span>How much elbow and leg room there is between the facing seats.</span></div>
+    <div><b>Bag space</b><span>How much luggage fits, and whether you can reach your bags during the flight.</span></div>
+  </div>
+  <h2>How the cabins feel</h2>
+  <p class="sub">You&#x27;re in the air about an hour and a half, and you&#x27;ll be seated for nearly all of it, just like a first-class seat. Height mostly matters for the walk to the lav.</p>
+  <div class="chart" role="img" aria-label="Cabin height: Premier I 5&#x27;5&quot;; Learjet 60XR 5&#x27;8&quot;; Merlin 4&#x27;9&quot;; Citation CJ4 4&#x27;9&quot;; PC-12 4&#x27;10&quot;; PC-12 NG 4&#x27;10&quot;; Learjet 45XR 4&#x27;11&quot;; Citation M2 4&#x27;9&quot;; PC-12 NG 4&#x27;10&quot;; PC-12 NG 4&#x27;10&quot;; Citation CJ2+ 4&#x27;9&quot;; Learjet 55 5&#x27;8&quot;; Citation CJ3 4&#x27;9&quot;; Sovereign+ 5&#x27;8&quot;; Citation Excel 5&#x27;8&quot;">
+    <div class="row"><span class="nm">Premier I</span><span class="track"><span class="fill hi" style="width:77.4%"></span></span><span class="v">5'5"</span></div><div class="row"><span class="nm">Learjet 60XR</span><span class="track"><span class="fill hi" style="width:81.3%"></span></span><span class="v">5'8"</span></div><div class="row"><span class="nm">Merlin</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">Citation CJ4</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">PC-12</span><span class="track"><span class="fill hi" style="width:68.5%"></span></span><span class="v">4'10"</span></div><div class="row"><span class="nm">PC-12 NG</span><span class="track"><span class="fill hi" style="width:68.5%"></span></span><span class="v">4'10"</span></div><div class="row"><span class="nm">Learjet 45XR</span><span class="track"><span class="fill hi" style="width:70.2%"></span></span><span class="v">4'11"</span></div><div class="row"><span class="nm">Citation M2</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">PC-12 NG</span><span class="track"><span class="fill hi" style="width:68.5%"></span></span><span class="v">4'10"</span></div><div class="row"><span class="nm">PC-12 NG</span><span class="track"><span class="fill hi" style="width:68.5%"></span></span><span class="v">4'10"</span></div><div class="row"><span class="nm">Citation CJ2+</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">Learjet 55</span><span class="track"><span class="fill hi" style="width:81.0%"></span></span><span class="v">5'8"</span></div><div class="row"><span class="nm">Citation CJ3</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">Sovereign+</span><span class="track"><span class="fill hi" style="width:81.0%"></span></span><span class="v">5'8"</span></div><div class="row"><span class="nm">Citation Excel</span><span class="track"><span class="fill hi" style="width:81.0%"></span></span><span class="v">5'8"</span></div>
+    <p class="legend">These are all seated cabins, built to settle into like a first-class seat. You&#x27;ll duck a little walking to the lav, which is normal for jets this size.</p>
+  </div>
+  <h2>At a glance</h2>
+  <div class="scroll"><table class="tbl">
+    <thead><tr><th>Aircraft</th><th>Cabin height</th><th>Width</th><th>Cabin length</th><th>Bags</th><th>Your price</th></tr></thead>
+    <tbody><tr><td>Beechcraft Premier I<span class="cls">Light Jet</span></td><td>5'5"</td><td>5'6"</td><td>13'6"</td><td>77 cu ft</td><td>$25,974</td></tr><tr><td>Bombardier Learjet 60XR<span class="cls">Midsize Jet</span></td><td>5'8"</td><td>5'11"</td><td>17'8"</td><td>59 cu ft, reachable in flight</td><td>$31,377</td></tr><tr><td>Swearingen Merlin<span class="cls">Turboprop</span></td><td>4'9"</td><td>5'2"</td><td>17'5"</td><td>105 cu ft</td><td>$33,722</td></tr><tr><td>Cessna Citation CJ4<span class="cls">Light Jet</span></td><td>4'9"</td><td>4'10"</td><td>17'4"</td><td>77 cu ft, reachable in flight</td><td>$34,078*</td></tr><tr><td>Pilatus PC-12<span class="cls">Turboprop</span></td><td>4'10"</td><td>5'0"</td><td>16'11"</td><td>37 cu ft, reachable in flight</td><td>$35,656</td></tr><tr><td>Pilatus PC-12 NG<span class="cls">Turboprop</span></td><td>4'10"</td><td>5'0"</td><td>16'11"</td><td>37 cu ft, reachable in flight</td><td>$35,915</td></tr><tr><td>Bombardier Learjet 45XR<span class="cls">Midsize Jet</span></td><td>4'11"</td><td>5'1"</td><td>19'9"</td><td>65 cu ft, reachable in flight</td><td>$36,780</td></tr><tr><td>Cessna Citation M2<span class="cls">Light Jet</span></td><td>4'9"</td><td>4'10"</td><td>11'0"</td><td>46 cu ft</td><td>$39,482</td></tr><tr><td>Pilatus PC-12 NG<span class="cls">Turboprop</span></td><td>4'10"</td><td>5'0"</td><td>16'11"</td><td>37 cu ft, reachable in flight</td><td>$41,872</td></tr><tr><td>Pilatus PC-12 NG<span class="cls">Turboprop</span></td><td>4'10"</td><td>5'0"</td><td>16'11"</td><td>37 cu ft, reachable in flight</td><td>$42,017</td></tr><tr><td>Cessna Citation CJ2+<span class="cls">Light Jet</span></td><td>4'9"</td><td>4'10"</td><td>13'7"</td><td>65 cu ft</td><td>$46,139</td></tr><tr><td>Bombardier Learjet 55<span class="cls">Midsize Jet</span></td><td>5'8"</td><td>5'11"</td><td>13'8"</td><td>60 cu ft</td><td>$51,149</td></tr><tr><td>Cessna Citation CJ3<span class="cls">Light Jet</span></td><td>4'9"</td><td>4'10"</td><td>15'8"</td><td>65 cu ft, reachable in flight</td><td>$53,925</td></tr><tr><td>Cessna Citation Sovereign+<span class="cls">Midsize Jet</span></td><td>5'8"</td><td>5'6"</td><td>25'3"</td><td>135 cu ft, reachable in flight</td><td>$66,653</td></tr><tr><td>Cessna Citation Excel<span class="cls">Midsize Jet</span></td><td>5'8"</td><td>5'6"</td><td>18'6"</td><td>90 cu ft</td><td>$69,517</td></tr></tbody>
+  </table></div>
+  <p class="note" style="margin-top:10px;font-style:normal">Manufacturer cabin figures, rounded. Prices include your first-flight credit, same as your quote. * The Citation CJ4 is priced returning Sun Dec 27; every other option returns Sat Dec 26.</p>
+  <h2>Light Jets</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/premier-exterior-1.jpg" alt="Beechcraft Premier I exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><p class="eyebrow">Lowest jet price</p><h3>Beechcraft Premier I</h3><p class="meta"><b>$25,974</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip go">Quick to Aspen</span><span class="chip">Private enclosed lav</span></div><p>The most direct way to get to Aspen by jet on this list. You sit back in a seated cabin with a comfortable feel for three, and you&#x27;re on the ground in under an hour and a half. For the three of you and a few regular suitcases, it&#x27;s a very sensible pick.</p><a href="https://en.wikipedia.org/wiki/Beechcraft_Premier_I" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/citation-cj4-exterior-1.jpg" alt="Cessna Citation CJ4 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Cessna Citation CJ4</h3><p class="meta"><b>$34,078</b> &nbsp;·&nbsp; Dec 19 to 27* &nbsp;·&nbsp; typically seats 7</p><div class="chips"><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>The largest of the Citation light jets here, with the most bag space of that group and an enclosed lavatory. This one is priced coming home Sunday the 27th. It can also come back Friday the 25th.</p><a href="https://en.wikipedia.org/wiki/Cessna_CitationJet/M2" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/citation-m2-exterior-1.jpg" alt="Cessna Citation M2 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Cessna Citation M2</h3><p class="meta"><b>$39,482</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 5</p><div class="chips"><span class="chip">Curtained lav</span></div><p>A clean, modern Citation with a seated cabin. It&#x27;s a nice fit for three people on a flight this short.</p><a href="https://en.wikipedia.org/wiki/Cessna_CitationJet/M2" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/citation-cj2-exterior-1.jpg" alt="Cessna Citation CJ2+ exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Cessna Citation CJ2+</h3><p class="meta"><b>$46,139</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Curtained lav</span></div><p>A step up from the M2 in cabin length, with a seated cabin that&#x27;s comfortable for three and quick to Aspen.</p><a href="https://en.wikipedia.org/wiki/Cessna_CitationJet/M2" target="_blank">Learn more and see photos</a></div><div class="card"><h3>Cessna Citation CJ3</h3><p class="meta"><b>$53,925</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>A popular Citation with a little more cabin than the CJ2+. It needs the owner&#x27;s approval before I can confirm it.</p><a href="https://en.wikipedia.org/wiki/Cessna_CitationJet/M2" target="_blank">Learn more and see photos</a></div><h2>Midsize Jets</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/learjet-60-exterior-1.jpg" alt="Bombardier Learjet 60XR exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><p class="eyebrow">Best value for room</p><h3>Bombardier Learjet 60XR</h3><p class="meta"><b>$31,377</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 7</p><div class="chips"><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>This one was fully redone in 2025 with new paint and a new interior. It&#x27;s the fastest aircraft on your list, with a longer cabin than the light jets and an enclosed lavatory. It&#x27;s a real step up in comfort for not much more money.</p><a href="https://en.wikipedia.org/wiki/Learjet_60" target="_blank">Learn more and see photos</a></div><div class="card"><h3>Bombardier Learjet 45XR</h3><p class="meta"><b>$36,780</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>A sleek midsize jet with a longer cabin than the light jets and an enclosed lavatory. It gets you to Aspen quickly, with room to spread out for three.</p><a href="https://en.wikipedia.org/wiki/Learjet_45" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/learjet-55-exterior-1.jpg" alt="Bombardier Learjet 55 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Bombardier Learjet 55</h3><p class="meta"><b>$51,149</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 7</p><div class="chips"></div><p>A fast classic Learjet with a seated cabin and room for your bags. It needs the owner&#x27;s approval before I can confirm it.</p><a href="https://en.wikipedia.org/wiki/Learjet_55" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/citation-sovereign-exterior-1.jpg" alt="Cessna Citation Sovereign+ exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><p class="eyebrow">Most bag room</p><h3>Cessna Citation Sovereign+</h3><p class="meta"><b>$66,653</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>The largest cabin here, with the most bag space of the midsize jets and plenty of room to spread out. The owner reviews trips about three weeks out, so I&#x27;d confirm this one closer to December.</p><a href="https://en.wikipedia.org/wiki/Cessna_Citation_Sovereign" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/citation-excel-xls-exterior-1.jpg" alt="Cessna Citation Excel exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Cessna Citation Excel</h3><p class="meta"><b>$69,517</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip">Private enclosed lav</span></div><p>A roomy midsize Citation with a comfortable club seating layout and generous bag space. It needs the owner&#x27;s approval before I can confirm it.</p><a href="https://en.wikipedia.org/wiki/Cessna_Citation_Excel" target="_blank">Learn more and see photos</a></div><h2>Turboprops</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/merlin-iii-exterior-1.jpg" alt="Swearingen Merlin exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Swearingen Merlin</h3><p class="meta"><b>$33,722</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 7</p><div class="chips"><span class="chip">Curtained lav</span></div><p>A twin-engine turboprop with a good-sized cabin and plenty of bag room for three. It takes about two hours to Aspen, a bit longer than the jets, in exchange for a lower price than most of them.</p><a href="https://en.wikipedia.org/wiki/Swearingen_Merlin" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/pc-12-exterior-1.jpg" alt="Pilatus PC-12 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Pilatus PC-12</h3><p class="meta"><b>$35,656</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>The PC-12 is a favorite for mountain airports, with a big cabin for a turboprop and a large cargo door for bags. It&#x27;s about two hours to Aspen.</p><a href="https://en.wikipedia.org/wiki/Pilatus_PC-12" target="_blank">Learn more and see photos</a></div><div class="card"><h3>Pilatus PC-12 NG</h3><p class="meta"><b>$35,915</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>Same roomy PC-12 cabin, in the newer NG version. A strong choice if you like the idea of a big cabin and easy bag loading, and don&#x27;t mind about two hours in the air.</p><a href="https://en.wikipedia.org/wiki/Pilatus_PC-12" target="_blank">Learn more and see photos</a></div><div class="card"><h3>Pilatus PC-12 NG</h3><p class="meta"><b>$41,872</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>Another PC-12 NG, with the same big cabin and easy bag loading as the others on your list.</p><a href="https://en.wikipedia.org/wiki/Pilatus_PC-12" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261219-ksdl-kase-aircraft/pc-12-cabin-1.jpg" alt="Pilatus PC-12 NG cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><h3>Pilatus PC-12 NG</h3><p class="meta"><b>$42,017</b> &nbsp;·&nbsp; Dec 19 to 26 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>A PC-12 NG flown by a single pilot, with the same big cabin as the others. It needs the owner&#x27;s approval before I can confirm it.</p><a href="https://en.wikipedia.org/wiki/Pilatus_PC-12" target="_blank">Learn more and see photos</a></div>
+  <div class="card"><h3>About Wi-Fi</h3><p style="margin:0">Wi-Fi varies from jet to jet, even within the same model, so I don't want to promise it on a type. Once you narrow it to one or two, I'll confirm whether that specific aircraft has it.</p></div>
+  <div class="take"><p class="eyebrow" style="color:#FF533D">My take</p><p><b>If price matters most,</b> the Premier I is the lowest-priced jet and quick to Aspen.</p><p><b>If you want room to get up and walk around the cabin a little,</b> look at the Learjet 60XR, which was redone in 2025 and is an easy step up for the money.</p><p><b>If bags are the main concern,</b> a PC-12 makes loading easy, and the Sovereign+ has the most bag room of the jets.</p></div>
+  <p class="note">The aircraft you fly will be the exact one pictured or one that's very similar in the fleet.</p>
+</div>
+<div class="cta">
+  
+  <p style="font-size:15px;margin:0 0 18px">Tell me which one or two catch your eye and I'll confirm Wi-Fi and the bag fit.</p>
+  <a class="btn" href="mailto:gmozingo@valleyjet.com?subject=Scottsdale%20to%20Aspen%20aircraft">Email Garrett</a>
+</div>
+<div class="sign">
+  <p>Happy to walk through it by phone too. Just give me a call anytime.</p><br>
+  <p>Best regards,</p>
+  <p style="font-size:15px;font-weight:bold">Garrett Mozingo</p>
+  <p style="font-size:13px;color:#3d4f6e">Owner &amp; Founder, ValleyJet</p>
+  <p style="font-size:13px;color:#3d4f6e">480.658.6129 &nbsp;|&nbsp; <a href="mailto:gmozingo@valleyjet.com" style="color:#FF533D;text-decoration:none">gmozingo@valleyjet.com</a></p>
+</div>
+<div class="foot">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <p>VALLEYJET.COM &middot; 480.658.6129 &middot; Scottsdale, AZ 85251</p>
+</div>
+</div></div>
+</body>
+</html>
