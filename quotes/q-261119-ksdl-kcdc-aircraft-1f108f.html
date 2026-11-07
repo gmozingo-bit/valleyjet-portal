@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ValleyJet - Scottsdale to Cedar City, Aircraft Guide</title>
+<style>
+  :root{--navy:#0F1626;--orange:#FF533D;--ink:#0F1626;--muted:#3d4f6e;--soft:#aab4c8;--line:#e3e7ee;--panel:#f6f8fb;--bg:#f0f2f5;--card:#ffffff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);-webkit-text-size-adjust:100%}
+  b,strong{font-weight:bold}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 0}
+  .sheet{background:var(--card);border-radius:8px;overflow:hidden}
+  .hero{background:var(--navy)}
+  .hero .stripe{height:5px;background:linear-gradient(90deg,#FF533D 0%,#ff7a5e 50%,#FF533D 100%)}
+  .hero .in{padding:36px 40px 40px}
+  .hero img{height:60px;width:auto;display:block;margin-bottom:28px;margin-left:-22px}
+  h1{margin:0 0 12px;font-size:32px;line-height:1.2;color:#fff;font-weight:bold}
+  .kicker{margin:0 0 20px;font-size:13px;font-weight:bold;color:var(--orange);letter-spacing:2px;text-transform:uppercase}
+  .hero p.lede{margin:0;font-size:16px;font-weight:300;color:var(--soft);line-height:1.6}
+  .bar{background:var(--orange);padding:14px 40px;color:#fff;font-size:14px;font-weight:bold}
+  .body{padding:40px 40px 8px}
+  p{font-size:16px;font-weight:300;line-height:1.6;margin:0 0 16px}
+  h2{font-size:20px;margin:36px 0 6px;font-weight:bold}
+  .sub{color:var(--muted);font-size:14px;font-weight:normal;margin:0 0 18px}
+  .eyebrow{font-size:14px;font-weight:bold;color:var(--orange);margin:0 0 6px}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0}
+  .three div{background:var(--panel);border-radius:6px;padding:16px}
+  .three b{display:block;font-size:14px;margin-bottom:6px}
+  .three span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+  .chart{border:1px solid var(--line);border-radius:6px;padding:18px 18px 10px;margin:8px 0 0}
+  .row{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:10px;margin:0 0 10px;font-size:13px}
+  .row .nm{font-weight:bold}
+  .track{position:relative;height:16px;background:var(--panel);border-radius:3px}
+  .fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#9aa8c0}
+  .fill.hi{background:var(--orange)}
+  .mark{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--navy)}
+  .row .v{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .legend{font-size:12px;color:var(--muted);margin:6px 0 4px}
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 0}
+  .tbl th{text-align:left;font-size:12px;font-weight:bold;color:var(--muted);padding:8px;border-bottom:2px solid var(--navy);white-space:nowrap}
+  .tbl td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+  .tbl td:first-child{font-weight:bold}
+  .tbl .cls{font-weight:normal;color:var(--muted);font-size:12px;display:block}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .card{border:1px solid var(--line);border-radius:6px;padding:20px;margin:0 0 14px}
+  .photos{margin:-20px -20px 16px;display:grid;gap:2px;border-radius:6px 6px 0 0;overflow:hidden}
+  .photos.two{grid-template-columns:3fr 2fr}
+  .photos figure{margin:0;position:relative;background:var(--panel)}
+  .photos img{width:100%;height:260px;object-fit:cover;display:block}
+  .photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 6px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(15,22,38,.75))}
+  .card h3{margin:0;font-size:18px}
+  .card .meta{font-size:13px;color:var(--muted);margin:4px 0 12px}
+  .card .meta b{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .chip{font-size:12px;background:var(--panel);border-radius:999px;padding:5px 10px;color:var(--ink)}
+  .chip.go{background:#fff0ed;color:#b53523;font-weight:bold}
+  .card p{font-size:15px;font-weight:300;margin:0 0 10px}
+  .card p.eyebrow,.take p.eyebrow,p.eyebrow{font-size:14px;font-weight:bold}
+  .card .meta,.legend,.three span,.card .meta *,p.legend{font-weight:normal}
+  .tbl th,.tbl td{padding-left:6px;padding-right:6px}
+  .card a{color:var(--orange);font-size:13px;font-weight:bold;text-decoration:none}
+  .take{background:var(--navy);color:#fff;border-radius:6px;padding:24px;margin:28px 0 8px}
+  .take p{color:#dfe5ef;font-size:15px;font-weight:300;margin:0 0 10px}
+  .take p:last-child{margin:0}
+  .take b{color:#fff}
+  .note{font-size:13px;font-weight:normal;color:#555;line-height:1.6;margin:18px 0 0}
+  .cta{text-align:center;padding:32px 40px 8px}
+  .btn{display:inline-block;background:var(--orange);color:#fff;font-size:15px;font-weight:bold;text-decoration:none;padding:14px 30px;border-radius:4px}
+  .sign{padding:32px 40px 40px}
+  .sign p{font-size:15px;margin:0 0 2px}
+  .foot{background:var(--navy);padding:26px 40px;text-align:center}
+  .foot img{height:30px;width:auto;display:block;margin:0 auto 12px}
+  .foot p{margin:0;font-size:13px;font-weight:300;color:var(--soft);letter-spacing:1px}
+  @media (max-width:640px){
+    .wrap{padding:0}
+    .sheet{border-radius:0}
+    .hero .in,.body,.cta,.sign,.bar,.foot{padding-left:22px;padding-right:22px}
+    h1{font-size:26px}
+    .three{grid-template-columns:1fr}
+    .row{grid-template-columns:104px 1fr 44px;font-size:12px}
+    .photos img{height:190px}
+    .photos.two{grid-template-columns:1fr}
+    .photos.two figure+figure img{height:150px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap"><div class="sheet">
+<div class="hero"><div class="stripe"></div><div class="in">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <h1>Your Aircraft, Side by Side</h1>
+  <p class="kicker">Scottsdale to Cedar City &nbsp;|&nbsp; November 19, same day &nbsp;|&nbsp; 2 Passengers</p>
+  <p class="lede">A plain-English guide to the 12 aircraft on your quote: how much room you'll have, how each cabin feels, where the bags go, and how each one compares.</p>
+</div></div>
+<div class="bar">Same 12 aircraft and the same prices as your quote.</div>
+<div class="body">
+  <p>Hi Noel,</p>
+  <p>Most people don&#x27;t know these aircraft by name until they&#x27;ve flown a few, so here&#x27;s a plain-English look at what each one is like to sit in. Here&#x27;s how they differ, and I&#x27;ve noted what stands out on each.</p>
+  <p>Every option flies the 251 nautical miles nonstop, about an hour to an hour and a half each way, with two pilots up front on all but the TBM 960. Lavatory setups differ between these aircraft, so I&#x27;ve noted each one below.</p>
+  <h2>The three things that really differ</h2>
+  <div class="three">
+    <div><b>Cabin height</b><span>Whether it's a walk-around cabin or a seated cabin you settle into, like first class.</span></div>
+    <div><b>Cabin width</b><span>How much elbow and leg room there is between the facing seats.</span></div>
+    <div><b>Bag space</b><span>How much luggage fits, and whether you can reach your bags during the flight.</span></div>
+  </div>
+  <h2>How the cabins feel</h2>
+  <p class="sub">You&#x27;re in the air about an hour, and you&#x27;ll be seated for nearly all of it, just like a first-class seat. Height mostly matters for the walk to the lav.</p>
+  <div class="chart" role="img" aria-label="Cabin height: Hawker 900XP 5&#x27;9&quot;; Citation XLS 5&#x27;8&quot;; Learjet 60 5&#x27;8&quot;; Premier I 5&#x27;5&quot;; Citation CJ3 4&#x27;9&quot;; Citation M2 4&#x27;9&quot;; PC-24 5&#x27;1&quot;; HondaJet 4&#x27;10&quot;; TBM 960 4&#x27;0&quot;; Epic E1000 4&#x27;6&quot;; PC-12 NG 4&#x27;10&quot;; King Air 350i 4&#x27;9&quot;">
+    <div class="row"><span class="nm">Hawker 900XP</span><span class="track"><span class="fill hi" style="width:82.1%"></span></span><span class="v">5'9"</span></div><div class="row"><span class="nm">Citation XLS</span><span class="track"><span class="fill hi" style="width:81.0%"></span></span><span class="v">5'8"</span></div><div class="row"><span class="nm">Learjet 60</span><span class="track"><span class="fill hi" style="width:81.3%"></span></span><span class="v">5'8"</span></div><div class="row"><span class="nm">Premier I</span><span class="track"><span class="fill hi" style="width:77.4%"></span></span><span class="v">5'5"</span></div><div class="row"><span class="nm">Citation CJ3</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">Citation M2</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div><div class="row"><span class="nm">PC-24</span><span class="track"><span class="fill hi" style="width:72.6%"></span></span><span class="v">5'1"</span></div><div class="row"><span class="nm">HondaJet</span><span class="track"><span class="fill hi" style="width:69.0%"></span></span><span class="v">4'10"</span></div><div class="row"><span class="nm">TBM 960</span><span class="track"><span class="fill hi" style="width:57.1%"></span></span><span class="v">4'0"</span></div><div class="row"><span class="nm">Epic E1000</span><span class="track"><span class="fill hi" style="width:64.3%"></span></span><span class="v">4'6"</span></div><div class="row"><span class="nm">PC-12 NG</span><span class="track"><span class="fill hi" style="width:68.5%"></span></span><span class="v">4'10"</span></div><div class="row"><span class="nm">King Air 350i</span><span class="track"><span class="fill hi" style="width:67.9%"></span></span><span class="v">4'9"</span></div>
+    <p class="legend">These are all seated cabins, built to settle into like a first-class seat. You&#x27;ll duck a little walking to the lav, which is normal for jets this size.</p>
+  </div>
+  <h2>At a glance</h2>
+  <div class="scroll"><table class="tbl">
+    <thead><tr><th>Aircraft</th><th>Cabin height</th><th>Width</th><th>Cabin length</th><th>Bags</th><th>Your price</th></tr></thead>
+    <tbody><tr><td>Hawker 900XP<span class="cls">Midsize Jet</span></td><td>5'9"</td><td>6'0"</td><td>21'4"</td><td>49 cu ft, reachable in flight</td><td>$13,750</td></tr><tr><td>Cessna Citation XLS<span class="cls">Midsize Jet</span></td><td>5'8"</td><td>5'6"</td><td>18'6"</td><td>90 cu ft</td><td>$21,876</td></tr><tr><td>Learjet 60<span class="cls">Midsize Jet</span></td><td>5'8"</td><td>5'11"</td><td>17'8"</td><td>59 cu ft, reachable in flight</td><td>$30,824</td></tr><tr><td>Beechcraft Premier I<span class="cls">Light Jet</span></td><td>5'5"</td><td>5'6"</td><td>13'6"</td><td>77 cu ft</td><td>$10,076</td></tr><tr><td>Cessna Citation CJ3<span class="cls">Light Jet</span></td><td>4'9"</td><td>4'10"</td><td>15'8"</td><td>65 cu ft, reachable in flight</td><td>$19,207</td></tr><tr><td>Cessna Citation M2<span class="cls">Light Jet</span></td><td>4'9"</td><td>4'10"</td><td>11'0"</td><td>46 cu ft</td><td>$19,423</td></tr><tr><td>Pilatus PC-24<span class="cls">Light Jet</span></td><td>5'1"</td><td>5'7"</td><td>23'0"</td><td>90 cu ft, reachable in flight</td><td>$21,025</td></tr><tr><td>HondaJet<span class="cls">Very Light Jet</span></td><td>4'10"</td><td>5'0"</td><td>17'10"</td><td>66 cu ft</td><td>$15,101</td></tr><tr><td>Daher TBM 960<span class="cls">Turboprop</span></td><td>4'0"</td><td>4'0"</td><td>13'3"</td><td>Ask me</td><td>$10,292</td></tr><tr><td>Epic E1000<span class="cls">Turboprop</span></td><td>4'6"</td><td>4'6"</td><td>15'0"</td><td>18 cu ft</td><td>$11,372</td></tr><tr><td>Pilatus PC-12 NG<span class="cls">Turboprop</span></td><td>4'10"</td><td>5'0"</td><td>16'11"</td><td>37 cu ft, reachable in flight</td><td>$12,164</td></tr><tr><td>Beechcraft King Air 350i<span class="cls">Turboprop</span></td><td>4'9"</td><td>4'6"</td><td>19'6"</td><td>71 cu ft, reachable in flight</td><td>$25,929</td></tr></tbody>
+  </table></div>
+  <p class="note" style="margin-top:10px;font-style:normal">Manufacturer cabin figures, rounded. Prices include your first-flight credit, same as your quote. Where a type appears twice on your quote, this page shows the lower price.</p>
+  <h2>Midsize Jets</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/hawker-900-exterior-1.jpg" alt="Hawker 900XP exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><p class="eyebrow">Most cabin for the money</p><h3>Hawker 900XP</h3><p class="meta"><b>$13,750</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Widest cabin here</span><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>This is the roomiest way to make the trip at a price close to the smaller jets. It&#x27;s the widest cabin on the list, so two people have space to spread out and work on the way up and back. It also has WiFi and a freshly updated interior.</p><a href="https://en.wikipedia.org/wiki/Hawker_800" target="_blank">Learn more and see photos</a></div><div class="card"><h3>Cessna Citation XLS</h3><p class="meta"><b>$21,876</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Big bag space</span><span class="chip">Private enclosed lav</span></div><p>A long-time favorite for business trips. You get a comfortable midsize cabin with room for your cases, and it&#x27;s a smooth, quick way to get there and back in a day.</p><a href="https://en.wikipedia.org/wiki/Cessna_Citation_Excel" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/learjet-60-exterior-1.jpg" alt="Learjet 60 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Learjet 60</h3><p class="meta"><b>$30,824</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 7</p><div class="chips"><span class="chip go">Fast</span><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>The sports car of the group, with a roomy midsize cabin. It&#x27;s quoted for an 8 AM departure and a 9 PM return, which gives your team the whole day in Cedar City.</p><a href="https://en.wikipedia.org/wiki/Learjet_60" target="_blank">Learn more and see photos</a></div><h2>Light Jets</h2><div class="card"><p class="eyebrow">Lowest price</p><h3>Beechcraft Premier I</h3><p class="meta"><b>$10,076</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip go">Lowest price on your list</span><span class="chip">Private enclosed lav</span></div><p>The lowest price on your quote, and a jet that&#x27;s quick on a short hop like this one. For a light jet the cabin is wide and tall, so two people have plenty of room, and there&#x27;s an enclosed lavatory.</p><a href="https://en.wikipedia.org/wiki/Beechcraft_Premier_I" target="_blank">Learn more and see photos</a></div><div class="card"><h3>Cessna Citation CJ3</h3><p class="meta"><b>$19,207</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>A seated cabin in a comfortable club layout, the classic setup for a working trip. You sit back with a table between you, and your bags are within reach in flight.</p><a href="https://en.wikipedia.org/wiki/Cessna_CitationJet/M2" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/citation-m2-exterior-1.jpg" alt="Cessna Citation M2 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Cessna Citation M2</h3><p class="meta"><b>$19,423</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 5</p><div class="chips"><span class="chip">Curtained lav</span></div><p>A modern, efficient light jet with a comfortable seated cabin that&#x27;s just right for two. It&#x27;s quoted for an 8 AM departure and a 9 PM return, so nobody has to watch the clock in Cedar City.</p><a href="https://en.wikipedia.org/wiki/Cessna_CitationJet/M2" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/pc-24-exterior-1.jpg" alt="Pilatus PC-24 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><p class="eyebrow">Newest design</p><h3>Pilatus PC-24</h3><p class="meta"><b>$21,025</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip go">Longest cabin</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>A newer design with the longest cabin on the list, a flat floor and plenty of bag space. It feels bigger than its class. It&#x27;s currently quoted with a 3 PM return, so I&#x27;d check on a later time if your meetings run long.</p><a href="https://en.wikipedia.org/wiki/Pilatus_PC-24" target="_blank">Learn more and see photos</a></div><h2>Very Light Jets</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/hondajet-exterior-1.jpg" alt="HondaJet exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>HondaJet</h3><p class="meta"><b>$15,101</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 5</p><div class="chips"><span class="chip go">Modern cabin</span><span class="chip">Private enclosed lav</span></div><p>A sleek, modern jet that&#x27;s an easy fit for two people with carry-ons. It has satellite WiFi and an enclosed lavatory. It&#x27;s currently quoted with a 3 PM return, and I can check on a later time.</p><a href="https://en.wikipedia.org/wiki/Honda_HA-420_HondaJet" target="_blank">Learn more and see photos</a></div><h2>Turboprops</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/tbm-cabin-1.jpg" alt="Daher TBM 960 cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><h3>Daher TBM 960</h3><p class="meta"><b>$10,292</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 4</p><div class="chips"><span class="chip go">Jet-like speed</span></div><p>Jet-like speed at a turboprop price, in a private seated cabin with club seating. It flies with one pilot and carries Garmin&#x27;s Autoland safety system. It leaves at 11:30 AM at the earliest and comes back by 6:45 PM at the latest.</p><a href="https://en.wikipedia.org/wiki/Socata_TBM" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/epic-e1000-exterior-1.jpg" alt="Epic E1000 exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><p class="eyebrow">Best value for the full day</p><h3>Epic E1000</h3><p class="meta"><b>$11,372</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 4</p><div class="chips"><span class="chip go">Free Starlink WiFi</span></div><p>One of the fastest turboprops flying, with Starlink WiFi included and two pilots up front. It&#x27;s quoted out at 7 AM and back at 8 PM, which gives your team the longest day in Cedar City at this price.</p><a href="https://en.wikipedia.org/wiki/Epic_E1000" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/pc-12-exterior-1.jpg" alt="Pilatus PC-12 NG exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Pilatus PC-12 NG</h3><p class="meta"><b>$12,164</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 6</p><div class="chips"><span class="chip go">Roomy for its size</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>A dependable favorite for regional airports, with a flat-floor cabin that&#x27;s roomy for its size. It&#x27;s a comfortable seated ride, and it&#x27;s currently quoted with a mid-afternoon return, so I&#x27;d check on a later time if you need one.</p><a href="https://en.wikipedia.org/wiki/Pilatus_PC-12" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261119-ksdl-kcdc-aircraft/king-air-350-exterior-1.jpg" alt="Beechcraft King Air 350i exterior" loading="lazy"><figcaption>Exterior</figcaption></figure></div><h3>Beechcraft King Air 350i</h3><p class="meta"><b>$25,929</b> &nbsp;·&nbsp; Thu Nov 19 &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Long cabin</span><span class="chip">Bags reachable in flight</span><span class="chip">Private enclosed lav</span></div><p>The classic twin-engine turboprop, with a long cabin, an enclosed lavatory and plenty of bag space. It&#x27;s a steady, comfortable ride and an easy pick if your group grows. It needs approval at booking, and I&#x27;ll confirm it the moment you choose it.</p><a href="https://en.wikipedia.org/wiki/Beechcraft_Super_King_Air" target="_blank">Learn more and see photos</a></div>
+  <div class="card"><h3>About Wi-Fi</h3><p style="margin:0">Wi-Fi varies from jet to jet, even within the same model, so I don't want to promise it on a type. Once you narrow it to one or two, I'll confirm whether that specific aircraft has it.</p></div>
+  <div class="take"><p class="eyebrow" style="color:#FF533D">My take</p><p><b>If you want the whole day in Cedar City,</b> the Epic E1000 is out at 7 AM and back at 8 PM at one of the lowest prices on the list.</p><p><b>If you'd like the most cabin for the money,</b> it's the Hawker 900XP, the widest cabin here at a price close to the light jets.</p><p><b>If price comes first,</b> the Premier I is the lowest price on your quote, and it's quoted out at 10 AM and back at 5 PM.</p></div>
+  <p class="note">The aircraft you fly will be the exact one pictured or one that's very similar in the fleet.</p>
+</div>
+<div class="cta">
+  <p>With the trip about 2 weeks out, these aircraft can get booked up quickly, so once one stands out, let me know and I'll get it held for you.</p>
+  <p style="font-size:15px;margin:0 0 18px">Tell me which one or two catch your eye and I'll confirm Wi-Fi and the bag fit.</p>
+  <a class="btn" href="mailto:gmozingo@valleyjet.com?subject=Scottsdale%20to%20Cedar City%20aircraft">Email Garrett</a>
+</div>
+<div class="sign">
+  <p>Happy to walk through it by phone too. Just give me a call anytime.</p><br>
+  <p>Best regards,</p>
+  <p style="font-size:15px;font-weight:bold">Garrett Mozingo</p>
+  <p style="font-size:13px;color:#3d4f6e">Owner &amp; Founder, ValleyJet</p>
+  <p style="font-size:13px;color:#3d4f6e">480.658.6129 &nbsp;|&nbsp; <a href="mailto:gmozingo@valleyjet.com" style="color:#FF533D;text-decoration:none">gmozingo@valleyjet.com</a></p>
+</div>
+<div class="foot">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <p>VALLEYJET.COM &middot; 480.658.6129 &middot; Scottsdale, AZ 85251</p>
+</div>
+</div></div>
+</body>
+</html>
