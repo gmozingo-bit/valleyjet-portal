@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ValleyJet - Scottsdale to Maui, Aircraft Guide</title>
+<style>
+  :root{--navy:#0F1626;--orange:#FF533D;--ink:#0F1626;--muted:#3d4f6e;--soft:#aab4c8;--line:#e3e7ee;--panel:#f6f8fb;--bg:#f0f2f5;--card:#ffffff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);-webkit-text-size-adjust:100%}
+  b,strong{font-weight:bold}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 0}
+  .sheet{background:var(--card);border-radius:8px;overflow:hidden}
+  .hero{background:var(--navy)}
+  .hero .stripe{height:5px;background:linear-gradient(90deg,#FF533D 0%,#ff7a5e 50%,#FF533D 100%)}
+  .hero .in{padding:36px 40px 40px}
+  .hero img{height:60px;width:auto;display:block;margin-bottom:28px;margin-left:-22px}
+  h1{margin:0 0 12px;font-size:32px;line-height:1.2;color:#fff;font-weight:bold}
+  .kicker{margin:0 0 20px;font-size:13px;font-weight:bold;color:var(--orange);letter-spacing:2px;text-transform:uppercase}
+  .hero p.lede{margin:0;font-size:16px;font-weight:300;color:var(--soft);line-height:1.6}
+  .bar{background:var(--orange);padding:14px 40px;color:#fff;font-size:14px;font-weight:bold}
+  .body{padding:40px 40px 8px}
+  p{font-size:16px;font-weight:300;line-height:1.6;margin:0 0 16px}
+  h2{font-size:20px;margin:36px 0 6px;font-weight:bold}
+  .sub{color:var(--muted);font-size:14px;font-weight:normal;margin:0 0 18px}
+  .eyebrow{font-size:14px;font-weight:bold;color:var(--orange);margin:0 0 6px}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0}
+  .three div{background:var(--panel);border-radius:6px;padding:16px}
+  .three b{display:block;font-size:14px;margin-bottom:6px}
+  .three span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+  .chart{border:1px solid var(--line);border-radius:6px;padding:18px 18px 10px;margin:8px 0 0}
+  .row{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:10px;margin:0 0 10px;font-size:13px}
+  .row .nm{font-weight:bold}
+  .track{position:relative;height:16px;background:var(--panel);border-radius:3px}
+  .fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#9aa8c0}
+  .fill.hi{background:var(--orange)}
+  .mark{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--navy)}
+  .row .v{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .legend{font-size:12px;color:var(--muted);margin:6px 0 4px}
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 0}
+  .tbl th{text-align:left;font-size:12px;font-weight:bold;color:var(--muted);padding:8px;border-bottom:2px solid var(--navy);white-space:nowrap}
+  .tbl td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+  .tbl td:first-child{font-weight:bold}
+  .tbl .cls{font-weight:normal;color:var(--muted);font-size:12px;display:block}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .card{border:1px solid var(--line);border-radius:6px;padding:20px;margin:0 0 14px}
+  .photos{margin:-20px -20px 16px;display:grid;gap:2px;border-radius:6px 6px 0 0;overflow:hidden}
+  .photos.two{grid-template-columns:3fr 2fr}
+  .photos figure{margin:0;position:relative;background:var(--panel)}
+  .photos img{width:100%;height:260px;object-fit:cover;display:block}
+  .photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 6px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(15,22,38,.75))}
+  .card h3{margin:0;font-size:18px}
+  .card .meta{font-size:13px;color:var(--muted);margin:4px 0 12px}
+  .card .meta b{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .chip{font-size:12px;background:var(--panel);border-radius:999px;padding:5px 10px;color:var(--ink)}
+  .chip.go{background:#fff0ed;color:#b53523;font-weight:bold}
+  .card p{font-size:15px;font-weight:300;margin:0 0 10px}
+  .card p.eyebrow,.take p.eyebrow,p.eyebrow{font-size:14px;font-weight:bold}
+  .card .meta,.legend,.three span,.card .meta *,p.legend{font-weight:normal}
+  .tbl th,.tbl td{padding-left:6px;padding-right:6px}
+  .card a{color:var(--orange);font-size:13px;font-weight:bold;text-decoration:none}
+  .take{background:var(--navy);color:#fff;border-radius:6px;padding:24px;margin:28px 0 8px}
+  .take p{color:#dfe5ef;font-size:15px;font-weight:300;margin:0 0 10px}
+  .take p:last-child{margin:0}
+  .take b{color:#fff}
+  .note{font-size:13px;font-weight:normal;color:#555;line-height:1.6;margin:18px 0 0}
+  .cta{text-align:center;padding:32px 40px 8px}
+  .btn{display:inline-block;background:var(--orange);color:#fff;font-size:15px;font-weight:bold;text-decoration:none;padding:14px 30px;border-radius:4px}
+  .sign{padding:32px 40px 40px}
+  .sign p{font-size:15px;margin:0 0 2px}
+  .foot{background:var(--navy);padding:26px 40px;text-align:center}
+  .foot img{height:30px;width:auto;display:block;margin:0 auto 12px}
+  .foot p{margin:0;font-size:13px;font-weight:300;color:var(--soft);letter-spacing:1px}
+  @media (max-width:640px){
+    .wrap{padding:0}
+    .sheet{border-radius:0}
+    .hero .in,.body,.cta,.sign,.bar,.foot{padding-left:22px;padding-right:22px}
+    h1{font-size:26px}
+    .three{grid-template-columns:1fr}
+    .row{grid-template-columns:104px 1fr 44px;font-size:12px}
+    .photos img{height:190px}
+    .photos.two{grid-template-columns:1fr}
+    .photos.two figure+figure img{height:150px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap"><div class="sheet">
+<div class="hero"><div class="stripe"></div><div class="in">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <h1>Your Aircraft, Side by Side</h1>
+  <p class="kicker">Scottsdale to Maui &nbsp;|&nbsp; December 1 and February 28 &nbsp;|&nbsp; 2 Passengers</p>
+  <p class="lede">A plain-English guide to the nine jets on your quote: how much room you'll have, how each cabin feels, where the bags go, and how each one compares.</p>
+</div></div>
+<div class="bar">Same nine aircraft and the same prices as your quote.</div>
+<div class="body">
+  <p>Hi Kim,</p>
+  <p>Great question, and you&#x27;re not alone. Most people don&#x27;t know these jets by name until they&#x27;ve flown a few. Here&#x27;s what actually separates them, so you can pick the one that feels right.</p>
+  <p>Every option flies the 2,474 nautical miles nonstop over the Pacific, about 6 to 7 hours out to Maui and 5 and a half to 6 hours home, with two pilots up front. All nine have a private, enclosed lavatory.</p>
+  <h2>The three things that really differ</h2>
+  <div class="three">
+    <div><b>Cabin height</b><span>Whether it's a walk-around cabin or a seated cabin you settle into, like first class.</span></div>
+    <div><b>Cabin width</b><span>How much elbow and leg room there is between the facing seats.</span></div>
+    <div><b>Bag space</b><span>How much luggage fits, and whether you can reach your bags during the flight.</span></div>
+  </div>
+  <h2>How the cabins feel</h2>
+  <p class="sub">You&#x27;re in the air about six hours. On a flight this long, room to get up and stretch is a real comfort, so here&#x27;s how they compare.</p>
+  <div class="chart" role="img" aria-label="Cabin height: Falcon 50EX 5&#x27;11&quot;; Challenger 300 6&#x27;1&quot;; G-V (round trip) 6&#x27;2&quot;; G-IVSP (Dec 1) 6&#x27;2&quot;; G-V (Dec 1) 6&#x27;2&quot;; Challenger 300 (Feb 28) 6&#x27;1&quot;; Falcon 2000LXS 6&#x27;2&quot;; G-V (Feb 28) 6&#x27;2&quot;; G450 6&#x27;2&quot;">
+    <div class="row"><span class="nm">Falcon 50EX</span><span class="track"><span class="fill hi" style="width:84.5%"></span></span><span class="v">5'11"</span></div><div class="row"><span class="nm">Challenger 300</span><span class="track"><span class="fill hi" style="width:86.9%"></span></span><span class="v">6'1"</span></div><div class="row"><span class="nm">G-V (round trip)</span><span class="track"><span class="fill hi" style="width:88.1%"></span></span><span class="v">6'2"</span></div><div class="row"><span class="nm">G-IVSP (Dec 1)</span><span class="track"><span class="fill hi" style="width:88.1%"></span></span><span class="v">6'2"</span></div><div class="row"><span class="nm">G-V (Dec 1)</span><span class="track"><span class="fill hi" style="width:88.1%"></span></span><span class="v">6'2"</span></div><div class="row"><span class="nm">Challenger 300 (Feb 28)</span><span class="track"><span class="fill hi" style="width:86.9%"></span></span><span class="v">6'1"</span></div><div class="row"><span class="nm">Falcon 2000LXS</span><span class="track"><span class="fill hi" style="width:88.1%"></span></span><span class="v">6'2"</span></div><div class="row"><span class="nm">G-V (Feb 28)</span><span class="track"><span class="fill hi" style="width:88.1%"></span></span><span class="v">6'2"</span></div><div class="row"><span class="nm">G450</span><span class="track"><span class="fill hi" style="width:88.1%"></span></span><span class="v">6'2"</span></div>
+    <p class="legend">The Challenger 300, G-V (round trip), G-IVSP (Dec 1), G-V (Dec 1), Challenger 300 (Feb 28), Falcon 2000LXS, G-V (Feb 28) and G450 are walk-around cabins where most adults stand upright. That&#x27;s a real plus on a flight this long, and worth stepping up for if you like to get up and stretch. The others are seated cabins: roomy in the seat, with a little duck on the walk to the lav.</p>
+  </div>
+  <h2>At a glance</h2>
+  <div class="scroll"><table class="tbl">
+    <thead><tr><th>Aircraft</th><th>Cabin height</th><th>Width</th><th>Cabin length</th><th>Bags</th><th>Your price</th></tr></thead>
+    <tbody><tr><td>Dassault Falcon 50EX<span class="cls">Super Midsize Jet</span></td><td>5'11"</td><td>6'1"</td><td>23'6"</td><td>115 cu ft</td><td>$216,249</td></tr><tr><td>Bombardier Challenger 300<span class="cls">Super Midsize Jet</span></td><td>6'1"</td><td>7'2"</td><td>25'2"</td><td>106 cu ft, reachable in flight</td><td>$244,581</td></tr><tr><td>Gulfstream G-V<span class="cls">Heavy Jet</span></td><td>6'2"</td><td>7'4"</td><td>43'11"</td><td>170 cu ft, reachable in flight</td><td>$259,552</td></tr><tr><td>Gulfstream G-IVSP<span class="cls">Heavy Jet</span></td><td>6'2"</td><td>7'4"</td><td>45'1"</td><td>169 cu ft, reachable in flight</td><td>$125,585*</td></tr><tr><td>Gulfstream G-V<span class="cls">Heavy Jet</span></td><td>6'2"</td><td>7'4"</td><td>43'11"</td><td>170 cu ft, reachable in flight</td><td>$146,893*</td></tr><tr><td>Bombardier Challenger 300<span class="cls">Super Midsize Jet</span></td><td>6'1"</td><td>7'2"</td><td>25'2"</td><td>106 cu ft, reachable in flight</td><td>$97,129*</td></tr><tr><td>Dassault Falcon 2000LXS<span class="cls">Heavy Jet</span></td><td>6'2"</td><td>7'8"</td><td>26'2"</td><td>131 cu ft, reachable in flight</td><td>$109,998*</td></tr><tr><td>Gulfstream G-V<span class="cls">Heavy Jet</span></td><td>6'2"</td><td>7'4"</td><td>43'11"</td><td>170 cu ft, reachable in flight</td><td>$150,133*</td></tr><tr><td>Gulfstream G450<span class="cls">Heavy Jet</span></td><td>6'2"</td><td>7'4"</td><td>45'1"</td><td>169 cu ft, reachable in flight</td><td>$158,913*</td></tr></tbody>
+  </table></div>
+  <p class="note" style="margin-top:10px;font-style:normal">Manufacturer cabin figures, rounded. Prices include your first-flight credit, same as your quote. * One-way prices cover that flight only, so pair any December 1 option with any February 28 option.</p>
+  <h2>Super Midsize Jets</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261201-ksdl-phog-aircraft/falcon-50-cabin-1.jpg" alt="Dassault Falcon 50EX cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><p class="eyebrow">Best round-trip value</p><h3>Dassault Falcon 50EX</h3><p class="meta"><b>$216,249</b> &nbsp;·&nbsp; Round trip &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Three engines over water</span></div><p>A three-engine Falcon built for long overwater legs like this one, and the lowest price for the full round trip. It&#x27;s a seated cabin with wide club chairs and a couch, so you can settle in and the pups have room at your feet.</p><a href="https://en.wikipedia.org/wiki/Dassault_Falcon_50" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261201-ksdl-phog-aircraft/challenger-300-cabin-1.jpg" alt="Bombardier Challenger 300 cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><h3>Bombardier Challenger 300</h3><p class="meta"><b>$244,581</b> &nbsp;·&nbsp; Round trip &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip go">Starlink WiFi</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>A stand-up cabin with a flat floor, so you can get up and walk around on a six-hour flight. This one has a 2025 interior refresh and fast Starlink WiFi the whole way across.</p><a href="https://en.wikipedia.org/wiki/Bombardier_Challenger_300" target="_blank">Learn more and see photos</a></div><div class="card"><p class="eyebrow">Lowest price home</p><h3>Bombardier Challenger 300</h3><p class="meta"><b>$97,129</b> &nbsp;·&nbsp; Feb 28 home* &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>The lowest price for the flight home, in a stand-up cabin with a flat floor. Room to get up and walk around, and you can reach your bags in flight.</p><a href="https://en.wikipedia.org/wiki/Bombardier_Challenger_300" target="_blank">Learn more and see photos</a></div><h2>Heavy Jets</h2><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261201-ksdl-phog-aircraft/gv-g550-cabin-1.jpg" alt="Gulfstream G-V cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><p class="eyebrow">Most room, both ways</p><h3>Gulfstream G-V</h3><p class="meta"><b>$259,552</b> &nbsp;·&nbsp; Round trip &nbsp;·&nbsp; typically seats 14</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip go">Cabin attendant included</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>A true large-cabin Gulfstream for both legs, with a cabin attendant on board to look after you. Lots of room to stretch out, a full galley, and a big cabin for the dogs to settle into.</p><a href="https://en.wikipedia.org/wiki/Gulfstream_G550" target="_blank">Learn more and see photos</a></div><div class="card"><p class="eyebrow">Lowest price to Maui</p><h3>Gulfstream G-IVSP</h3><p class="meta"><b>$125,585</b> &nbsp;·&nbsp; Dec 1 out* &nbsp;·&nbsp; typically seats 14</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>A large-cabin Gulfstream for the flight out at the lowest one-way price. Plenty of room to get up, walk around, and stretch out over the Pacific.</p><a href="https://en.wikipedia.org/wiki/Gulfstream_IV" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261201-ksdl-phog-aircraft/gv-g550-cabin-1.jpg" alt="Gulfstream G-V cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><h3>Gulfstream G-V</h3><p class="meta"><b>$146,893</b> &nbsp;·&nbsp; Dec 1 out* &nbsp;·&nbsp; typically seats 14</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip go">2026 refresh, Starlink</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>A freshly refurbished Gulfstream with Starlink WiFi. The same aircraft family can bring you home on February 28 too, if you&#x27;d like one jet for both legs.</p><a href="https://en.wikipedia.org/wiki/Gulfstream_G550" target="_blank">Learn more and see photos</a></div><div class="card"><p class="eyebrow">Best value for room</p><h3>Dassault Falcon 2000LXS</h3><p class="meta"><b>$109,998</b> &nbsp;·&nbsp; Feb 28 home* &nbsp;·&nbsp; typically seats 8</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip go">Starlink WiFi</span><span class="chip">Bags reachable in flight</span></div><p>A newer large-cabin Falcon with one of the widest cabins on your list, Starlink WiFi, and a starlight headliner. A lot of jet for the price on the way home.</p><a href="https://en.wikipedia.org/wiki/Dassault_Falcon_2000" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261201-ksdl-phog-aircraft/gv-g550-cabin-1.jpg" alt="Gulfstream G-V cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><h3>Gulfstream G-V</h3><p class="meta"><b>$150,133</b> &nbsp;·&nbsp; Feb 28 home* &nbsp;·&nbsp; typically seats 14</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip go">2026 refresh, Starlink</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>The refurbished Gulfstream for the trip home, with Starlink WiFi and a long cabin to stretch out in. Pair it with the Dec 1 G-V and you&#x27;re on the same type both ways.</p><a href="https://en.wikipedia.org/wiki/Gulfstream_G550" target="_blank">Learn more and see photos</a></div><div class="card"><div class="photos"><figure><img src="https://gmozingo-bit.github.io/valleyjet-portal/img/q-261201-ksdl-phog-aircraft/giv-cabin-1.jpg" alt="Gulfstream G450 cabin" loading="lazy"><figcaption>Cabin</figcaption></figure></div><p class="eyebrow">Newest Gulfstream</p><h3>Gulfstream G450</h3><p class="meta"><b>$158,913</b> &nbsp;·&nbsp; Feb 28 home* &nbsp;·&nbsp; typically seats 14</p><div class="chips"><span class="chip go">Stand-up cabin</span><span class="chip">Flat floor</span><span class="chip">Bags reachable in flight</span></div><p>The newest Gulfstream on your list, with a 2026 interior refresh and Starlink WiFi. A quiet, roomy cabin for the flight home.</p><a href="https://en.wikipedia.org/wiki/Gulfstream_IV" target="_blank">Learn more and see photos</a></div>
+  <div class="card"><h3>About Wi-Fi</h3><p style="margin:0">Wi-Fi varies from jet to jet, even within the same model, so I don't want to promise it on a type. Once you narrow it to one or two, I'll confirm whether that specific aircraft has it.</p></div>
+  <div class="take"><p class="eyebrow" style="color:#FF533D">My take</p><p><b>If you'd like one aircraft for the whole trip at the best price,</b> it's the Falcon 50EX.</p><p><b>If you want room to get up and walk around,</b> the Challenger 300 and the Gulfstreams all give you that.</p><p><b>If you're happy to mix and match,</b> the G-IVSP out and the Challenger 300 home is the lowest combination.</p></div>
+  <p class="note">The aircraft you fly will be the exact one pictured or one that's very similar in the fleet.</p>
+</div>
+<div class="cta">
+  <p>With the trip about 2 weeks out, these aircraft can get booked up quickly, so once one stands out, let me know and I'll get it held for you.</p>
+  <p style="font-size:15px;margin:0 0 18px">Tell me which one or two catch your eye and I'll confirm Wi-Fi and the bag fit.</p>
+  <a class="btn" href="mailto:gmozingo@valleyjet.com?subject=Scottsdale%20to%20Maui%20aircraft">Email Garrett</a>
+</div>
+<div class="sign">
+  <p>Happy to walk through it by phone too. Just give me a call anytime.</p><br>
+  <p>Best regards,</p>
+  <p style="font-size:15px;font-weight:bold">Garrett Mozingo</p>
+  <p style="font-size:13px;color:#3d4f6e">Owner &amp; Founder, ValleyJet</p>
+  <p style="font-size:13px;color:#3d4f6e">480.658.6129 &nbsp;|&nbsp; <a href="mailto:gmozingo@valleyjet.com" style="color:#FF533D;text-decoration:none">gmozingo@valleyjet.com</a></p>
+</div>
+<div class="foot">
+  <a href="https://valleyjet.com" target="_blank"><img src="https://valleyjet.com/wp-content/uploads/2026/02/Wordmark-White-01.png" alt="ValleyJet"></a>
+  <p>VALLEYJET.COM &middot; 480.658.6129 &middot; Scottsdale, AZ 85251</p>
+</div>
+</div></div>
+</body>
+</html>
