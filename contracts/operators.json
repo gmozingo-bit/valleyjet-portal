@@ -935,11 +935,11 @@
     },
     {
       "short_name": "Royal Air Charter",
-      "legal_entity_name": "Royal Air Charters, LLC",
+      "legal_entity_name": "Royal Air Freight, Inc.",
       "faa_part_135_cert": "BUHA637C",
       "legal_name_verified": true,
       "cert_verified": true,
-      "carrier_note": "Waterford, MI at KPTK (2141 Airport Road, charter@royalair.com, 248-886-9304; quotes via Schedaero, Mackenzie Case charter.4427@aviationmessage.com). Quote PDF 45430668 (Nov 24 2026, Falcon 20F-5 N239CD): 'Aircraft owned by Royal Air Charter are operated under FAA Part 135 Air Carrier Certificate #BUHA637C'; the brokerage agreement in the same PDF names 'ROYAL AIR CHARTERS, LLC, a Michigan limited liability company'. Sister entity Royal Air Freight (dispatch@royalair.com) may be the actual certificate holder; confirm with Royal and fix legal_entity_name if so. Not checked against the FAA. ARGUS Gold. Quotes valid 24h, variable fuel surcharge recalculated 3 days out, full payment by wire 48h prior, refunds by company check only, signed contract + payment within 24h of request-to-book.",
+      "carrier_note": "Waterford, MI at KPTK (2141 Airport Road, charter@royalair.com, 248-886-9304; quotes via Schedaero, Mackenzie Case charter.4427@aviationmessage.com). Quote PDF 45430668 (Nov 24 2026, Falcon 20F-5 N239CD): 'Aircraft owned by Royal Air Charter are operated under FAA Part 135 Air Carrier Certificate #BUHA637C'; the brokerage agreement in the same PDF names 'ROYAL AIR CHARTERS, LLC, a Michigan limited liability company'. FAA Part 135 aircraft list (OpSpec D085, pulled 2026-11-24) shows N239CD and the RA-tail fleet on certificate designator BUHA held by Royal Air Freight, Inc. (FSDO GL23); Royal Air Charters, LLC is the brokerage arm. ARGUS Gold.",
       "cancellation": {
         "verified": true,
         "verified_date": "2026-11-24",
